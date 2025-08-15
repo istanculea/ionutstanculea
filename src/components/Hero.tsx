@@ -1,0 +1,60 @@
+import { ArrowDown, Download, ExternalLink } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import portraitImg from "@/assets/portrait.jpg"
+
+export function Hero() {
+  return (
+    <section className="min-h-screen surface-hero flex items-center justify-center px-6 py-12">
+      <div className="container max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Content */}
+          <div className="space-y-8 animate-fade-up">
+            <div className="space-y-4">
+              <p className="text-lg text-muted-foreground font-medium">Hello, I'm</p>
+              <h1 className="text-5xl lg:text-7xl font-bold tracking-tight">
+                Alex <span className="text-gradient">Thompson</span>
+              </h1>
+              <h2 className="text-2xl lg:text-3xl text-muted-foreground font-light">
+                Full-Stack Developer & UI/UX Designer
+              </h2>
+            </div>
+            
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+              I craft digital experiences that bridge the gap between design and technology. 
+              Passionate about creating intuitive interfaces and scalable solutions.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button className="btn-hero group">
+                View Portfolio
+                <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+              <Button className="btn-outline group">
+                <Download className="mr-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+                Download Resume
+              </Button>
+            </div>
+          </div>
+
+          {/* Portrait */}
+          <div className="relative animate-scale-in">
+            <div className="relative mx-auto lg:mx-0 w-80 h-80 lg:w-96 lg:h-96">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl rotate-6 animate-pulse"></div>
+              <img
+                src={portraitImg}
+                alt="Alex Thompson - Full-Stack Developer"
+                className="relative w-full h-full object-cover rounded-3xl shadow-2xl"
+              />
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-r from-primary to-accent rounded-2xl shadow-glow opacity-80"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <ArrowDown className="h-6 w-6 text-muted-foreground" />
+        </div>
+      </div>
+    </section>
+  )
+}
