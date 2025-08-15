@@ -1,55 +1,60 @@
 import { 
-  Code2, 
-  Database, 
-  Palette, 
   Cloud, 
-  Globe, 
-  Smartphone,
+  Database, 
+  GitBranch, 
+  Settings, 
+  Monitor,
   Server,
-  GitBranch
+  Container,
+  Shield
 } from "lucide-react"
 
 export function Skills() {
   const skillCategories = [
     {
-      title: "Frontend",
-      icon: <Globe className="h-6 w-6" />,
-      skills: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Vue.js", "SASS"]
-    },
-    {
-      title: "Backend", 
-      icon: <Server className="h-6 w-6" />,
-      skills: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Express", "FastAPI"]
-    },
-    {
-      title: "Design",
-      icon: <Palette className="h-6 w-6" />,
-      skills: ["Figma", "Adobe XD", "Sketch", "Photoshop", "Illustrator", "Framer"]
-    },
-    {
-      title: "Cloud & DevOps",
+      title: "Cloud Platforms",
       icon: <Cloud className="h-6 w-6" />,
-      skills: ["AWS", "Docker", "Kubernetes", "Vercel", "Netlify", "GitHub Actions"]
+      skills: ["Azure", "AWS", "Azure DevOps", "Azure Monitor", "CloudFormation", "ARM Templates"]
     },
     {
-      title: "Mobile",
-      icon: <Smartphone className="h-6 w-6" />,
-      skills: ["React Native", "Flutter", "Expo", "iOS", "Android", "PWA"]
+      title: "Infrastructure & Automation", 
+      icon: <Server className="h-6 w-6" />,
+      skills: ["Terraform", "Infrastructure as Code", "PowerShell", "Bash", "Python", "Jenkins"]
     },
     {
-      title: "Tools",
+      title: "Containers & Orchestration",
+      icon: <Container className="h-6 w-6" />,
+      skills: ["Docker", "Kubernetes", "Container Registry", "Helm", "Docker Compose", "Microservices"]
+    },
+    {
+      title: "Monitoring & Observability",
+      icon: <Monitor className="h-6 w-6" />,
+      skills: ["Grafana", "Azure Monitor", "Log Analytics", "Application Insights", "Prometheus", "AlertManager"]
+    },
+    {
+      title: "Databases & Storage",
+      icon: <Database className="h-6 w-6" />,
+      skills: ["MySQL", "PostgreSQL", "Azure SQL", "Blob Storage", "Redis", "MongoDB"]
+    },
+    {
+      title: "DevOps & Collaboration",
       icon: <GitBranch className="h-6 w-6" />,
-      skills: ["Git", "VS Code", "Linear", "Notion", "Slack", "Postman"]
+      skills: ["GitHub", "CI/CD Pipelines", "Jira", "Confluence", "Selenium", "Agile"]
     }
+  ]
+
+  const additionalSkills = [
+    { name: "CAD & Design", skills: ["CATIA V5", "Solid Edge", "AutoCAD"] },
+    { name: "Languages", skills: ["Romanian (Native)", "English (C2)", "Spanish (B1)", "Italian (A2)"] }
   ]
 
   return (
     <section id="skills" className="py-20 px-6 bg-surface">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold">Skills & Expertise</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold">Technical Expertise</h2>
           <p className="text-xl text-muted-foreground">
-            Technologies and tools I use to bring ideas to life
+            Cloud infrastructure and DevOps technologies I work with daily
           </p>
         </div>
 
@@ -78,27 +83,43 @@ export function Skills() {
           ))}
         </div>
 
-        {/* Additional Skills */}
+        {/* Core Competencies */}
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-semibold mb-8">Core Competencies</h3>
           <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <div className="flex flex-col items-center space-y-3">
-              <Code2 className="h-8 w-8 text-primary" />
-              <span className="font-medium">Clean Code</span>
+              <Settings className="h-8 w-8 text-primary" />
+              <span className="font-medium">Automation</span>
             </div>
             <div className="flex flex-col items-center space-y-3">
-              <Database className="h-8 w-8 text-primary" />
-              <span className="font-medium">System Design</span>
+              <Shield className="h-8 w-8 text-primary" />
+              <span className="font-medium">Security</span>
             </div>
             <div className="flex flex-col items-center space-y-3">
-              <Palette className="h-8 w-8 text-primary" />
-              <span className="font-medium">UI/UX Design</span>
+              <Monitor className="h-8 w-8 text-primary" />
+              <span className="font-medium">Monitoring</span>
             </div>
             <div className="flex flex-col items-center space-y-3">
-              <GitBranch className="h-8 w-8 text-primary" />
-              <span className="font-medium">Team Leadership</span>
+              <Cloud className="h-8 w-8 text-primary" />
+              <span className="font-medium">Scalability</span>
             </div>
           </div>
+        </div>
+
+        {/* Additional Skills */}
+        <div className="mt-16 grid md:grid-cols-2 gap-8">
+          {additionalSkills.map((category) => (
+            <div key={category.name} className="surface-card p-6">
+              <h4 className="text-lg font-semibold mb-4">{category.name}</h4>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span key={skill} className="skill-badge text-xs">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

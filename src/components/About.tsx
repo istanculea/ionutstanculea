@@ -5,71 +5,83 @@ export function About() {
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold">About Me</h2>
           <p className="text-xl text-muted-foreground">
-            Building digital experiences with passion and precision
+            Building resilient cloud infrastructure with expertise and precision
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg leading-relaxed">
-              I'm a passionate full-stack developer with over 5 years of experience 
-              creating digital solutions that make a difference. My journey began with 
-              a curiosity for how things work, which evolved into a deep love for 
-              crafting elegant code and beautiful interfaces.
+              I'm a passionate Cloud, Infrastructure & Operations Engineer with over 7 years 
+              of experience building, managing, and automating scalable infrastructure on Azure 
+              and AWS. Currently working at Electronic Arts, I specialize in optimizing hybrid 
+              cloud environments and implementing robust DevOps practices.
             </p>
             
             <p className="text-lg leading-relaxed">
-              I specialize in modern web technologies and have a keen eye for design. 
-              Whether it's building scalable backend systems or creating intuitive 
-              user experiences, I approach every project with attention to detail 
-              and a commitment to quality.
+              My expertise spans from Infrastructure as Code with Terraform to implementing 
+              comprehensive monitoring solutions with Grafana. I have a proven track record 
+              of reducing system incidents by 25% and deployment times by 35% through 
+              automation and process optimization.
             </p>
 
             <p className="text-lg leading-relaxed">
-              When I'm not coding, you'll find me exploring new technologies, 
-              contributing to open-source projects, or sharing my knowledge through 
-              technical writing and mentoring.
+              When I'm not optimizing cloud infrastructure, you'll find me working on smart 
+              home automation projects, 3D printing prototypes, or exploring the latest 
+              developments in cloud technologies.
             </p>
           </div>
 
           <div className="space-y-8">
             <div className="grid grid-cols-2 gap-6">
               <div className="surface-card p-6 text-center">
-                <div className="text-3xl font-bold text-primary">50+</div>
-                <div className="text-sm text-muted-foreground mt-2">Projects Completed</div>
+                <div className="text-3xl font-bold text-primary">5,000+</div>
+                <div className="text-sm text-muted-foreground mt-2">Global Users Supported</div>
               </div>
               <div className="surface-card p-6 text-center">
-                <div className="text-3xl font-bold text-primary">5+</div>
+                <div className="text-3xl font-bold text-primary">7+</div>
                 <div className="text-sm text-muted-foreground mt-2">Years Experience</div>
               </div>
               <div className="surface-card p-6 text-center">
-                <div className="text-3xl font-bold text-primary">25+</div>
-                <div className="text-sm text-muted-foreground mt-2">Happy Clients</div>
+                <div className="text-3xl font-bold text-primary">25%</div>
+                <div className="text-sm text-muted-foreground mt-2">Incident Reduction</div>
               </div>
               <div className="surface-card p-6 text-center">
-                <div className="text-3xl font-bold text-primary">10k+</div>
-                <div className="text-sm text-muted-foreground mt-2">Lines of Code</div>
+                <div className="text-3xl font-bold text-primary">35%</div>
+                <div className="text-sm text-muted-foreground mt-2">Deployment Optimization</div>
               </div>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold">What I Believe In</h3>
+              <h3 className="text-xl font-semibold">Certifications</h3>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <span className="cert-badge">Microsoft Azure Fundamentals (AZ-900)</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="cert-badge">Microsoft Azure Administrator Associate (AZ-104)</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">Core Values</h3>
               <ul className="space-y-3">
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span>Clean, maintainable code</span>
+                  <span>Infrastructure as Code</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span>User-centered design</span>
+                  <span>Automation & Efficiency</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span>Continuous learning</span>
+                  <span>Continuous Learning</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span>Collaborative teamwork</span>
+                  <span>Incident Prevention</span>
                 </li>
               </ul>
             </div>

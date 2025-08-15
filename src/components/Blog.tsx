@@ -5,30 +5,30 @@ export function Blog() {
   const blogPosts = [
     {
       id: 1,
-      title: "Building Scalable React Applications with TypeScript",
-      excerpt: "Learn how to structure large React applications using TypeScript, proper folder organization, and modern development patterns.",
-      date: "March 15, 2024",
-      readTime: "8 min read",
-      category: "Development",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop&crop=entropy&auto=format"
+      title: "Optimizing Azure Infrastructure with Terraform",
+      excerpt: "A comprehensive guide to implementing Infrastructure as Code on Azure, reducing deployment times by 35% and ensuring consistent environments across teams.",
+      date: "March 12, 2024",
+      readTime: "10 min read",
+      category: "Cloud Infrastructure",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&crop=entropy&auto=format"
     },
     {
       id: 2, 
-      title: "The Art of Minimalist UI Design",
-      excerpt: "Exploring the principles of minimalist design and how to create clean, intuitive interfaces that users love.",
-      date: "March 8, 2024",
-      readTime: "6 min read",
-      category: "Design",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&crop=entropy&auto=format"
+      title: "Building Resilient Monitoring with Grafana",
+      excerpt: "How to implement comprehensive monitoring solutions that provide real-time insights and reduce incident response times by 40%.",
+      date: "February 28, 2024",
+      readTime: "8 min read",
+      category: "DevOps",
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop&crop=entropy&auto=format"
     },
     {
       id: 3,
-      title: "Optimizing Web Performance in 2024",
-      excerpt: "A comprehensive guide to modern web performance optimization techniques, from Core Web Vitals to advanced caching strategies.",
-      date: "February 28, 2024", 
+      title: "Container Orchestration Best Practices",
+      excerpt: "Lessons learned from managing Kubernetes clusters at scale, including security hardening, resource optimization, and disaster recovery strategies.",
+      date: "February 15, 2024", 
       readTime: "12 min read",
-      category: "Performance",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=entropy&auto=format"
+      category: "Kubernetes",
+      image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&h=400&fit=crop&crop=entropy&auto=format"
     }
   ]
 
@@ -36,9 +36,9 @@ export function Blog() {
     <section id="blog" className="py-20 px-6">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold">Latest Articles</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold">Technical Insights</h2>
           <p className="text-xl text-muted-foreground">
-            Thoughts on development, design, and technology
+            Sharing knowledge on cloud infrastructure and DevOps practices
           </p>
         </div>
 
@@ -59,7 +59,7 @@ export function Blog() {
               
               <div className="p-6 space-y-4">
                 <div className="flex items-center justify-between text-sm text-muted-foreground">
-                  <span className="bg-primary/10 text-primary px-3 py-1 rounded-full font-medium">
+                  <span className="cloud-badge">
                     {post.category}
                   </span>
                   <div className="flex items-center space-x-4">

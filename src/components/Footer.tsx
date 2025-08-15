@@ -6,18 +6,18 @@ export function Footer() {
       <div className="container max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-center md:text-left">
-            <div className="text-2xl font-bold text-gradient mb-2">Alex Thompson</div>
+            <div className="text-2xl font-bold text-gradient mb-2">Ionuț Stănculea</div>
             <p className="text-muted-foreground">
-              Building digital experiences with passion and precision
+              Cloud Infrastructure Engineer building scalable solutions
             </p>
           </div>
           
           <div className="text-center md:text-right">
             <p className="text-muted-foreground">
-              © {currentYear} Alex Thompson. All rights reserved.
+              © {currentYear} Ionuț Stănculea. All rights reserved.
             </p>
             <p className="text-sm text-muted-foreground mt-1">
-              Made with ❤️ and lots of ☕
+              Built with ☁️ and ⚡ automation
             </p>
           </div>
         </div>

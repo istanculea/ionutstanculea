@@ -1,6 +1,6 @@
 import { ArrowDown, Download, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import portraitImg from "@/assets/portrait.jpg"
+import portraitImg from "@/assets/ionut-portrait.jpg"
 
 export function Hero() {
   return (
@@ -10,19 +10,34 @@ export function Hero() {
           {/* Content */}
           <div className="space-y-8 animate-fade-up">
             <div className="space-y-4">
+              <div className="flex items-center space-x-2 text-sm">
+                <span className="cloud-badge">Azure Certified</span>
+                <span className="cloud-badge">7+ Years</span>
+              </div>
               <p className="text-lg text-muted-foreground font-medium">Hello, I'm</p>
               <h1 className="text-5xl lg:text-7xl font-bold tracking-tight">
-                Alex <span className="text-gradient">Thompson</span>
+                Ionuț <span className="text-gradient">Stănculea</span>
               </h1>
               <h2 className="text-2xl lg:text-3xl text-muted-foreground font-light">
-                Full-Stack Developer & UI/UX Designer
+                Cloud, Infrastructure & Operations Engineer
               </h2>
             </div>
             
             <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              I craft digital experiences that bridge the gap between design and technology. 
-              Passionate about creating intuitive interfaces and scalable solutions.
+              Specialized in building, managing, and automating scalable infrastructure on Azure and AWS. 
+              7+ years of experience optimizing CI/CD pipelines and driving platform reliability at scale.
             </p>
+
+            <div className="flex items-center space-x-3 text-sm text-muted-foreground">
+              <span className="flex items-center space-x-1">
+                <span>📍</span>
+                <span>Bucharest, Romania</span>
+              </span>
+              <span className="flex items-center space-x-1">
+                <span>✉️</span>
+                <span>stanculea.ionut.93@gmail.com</span>
+              </span>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="btn-hero group">
@@ -31,7 +46,7 @@ export function Hero() {
               </Button>
               <Button className="btn-outline group">
                 <Download className="mr-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
-                Download Resume
+                Download CV
               </Button>
             </div>
           </div>
@@ -39,13 +54,13 @@ export function Hero() {
           {/* Portrait */}
           <div className="relative animate-scale-in">
             <div className="relative mx-auto lg:mx-0 w-80 h-80 lg:w-96 lg:h-96">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl rotate-6 animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl rotate-6 animate-float"></div>
               <img
                 src={portraitImg}
-                alt="Alex Thompson - Full-Stack Developer"
+                alt="Ionuț Stănculea - Cloud Infrastructure Engineer"
                 className="relative w-full h-full object-cover rounded-3xl shadow-2xl"
               />
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-r from-primary to-accent rounded-2xl shadow-glow opacity-80"></div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-r from-primary to-accent rounded-2xl shadow-glow opacity-80 animate-pulse"></div>
             </div>
           </div>
         </div>

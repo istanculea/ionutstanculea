@@ -43,19 +43,19 @@ export function Contact() {
     {
       icon: <Mail className="h-5 w-5" />,
       label: "Email",
-      value: "alex@example.com",
-      href: "mailto:alex@example.com"
+      value: "stanculea.ionut.93@gmail.com",
+      href: "mailto:stanculea.ionut.93@gmail.com"
     },
     {
       icon: <Phone className="h-5 w-5" />,
       label: "Phone", 
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
+      value: "(+40) 775 547 311",
+      href: "tel:+40775547311"
     },
     {
       icon: <MapPin className="h-5 w-5" />,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "Bucharest, Romania",
       href: "#"
     }
   ]
@@ -64,17 +64,17 @@ export function Contact() {
     {
       icon: <Github className="h-5 w-5" />,
       label: "GitHub",
-      href: "https://github.com/alexthompson"
+      href: "https://github.com/ionut-stanculea"
     },
     {
       icon: <Linkedin className="h-5 w-5" />,
       label: "LinkedIn", 
-      href: "https://linkedin.com/in/alexthompson"
+      href: "https://linkedin.com/in/ionut-stanculea"
     },
     {
       icon: <Twitter className="h-5 w-5" />,
       label: "Twitter",
-      href: "https://twitter.com/alexthompson"
+      href: "https://twitter.com/ionut_stanculea"
     }
   ]
 
@@ -82,9 +82,9 @@ export function Contact() {
     <section id="contact" className="py-20 px-6 bg-surface">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold">Get In Touch</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold">Let's Connect</h2>
           <p className="text-xl text-muted-foreground">
-            Have a project in mind? Let's build something amazing together
+            Open to new opportunities and exciting cloud infrastructure projects
           </p>
         </div>
 
@@ -164,7 +164,7 @@ export function Contact() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Follow Me</h3>
+              <h3 className="text-2xl font-semibold mb-6">Professional Network</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((link) => (
                   <a
@@ -184,10 +184,21 @@ export function Contact() {
             <div className="surface-card p-6">
               <h4 className="font-semibold mb-3">Let's collaborate!</h4>
               <p className="text-muted-foreground leading-relaxed">
-                I'm always interested in new opportunities and exciting projects. 
-                Whether you have a specific idea in mind or just want to explore 
-                possibilities, I'd love to hear from you.
+                I'm always interested in challenging cloud infrastructure projects 
+                and DevOps transformations. Whether you need help with Azure migrations, 
+                Kubernetes deployments, or CI/CD optimization, I'd love to discuss how 
+                we can work together.
               </p>
+            </div>
+
+            <div className="surface-card p-6">
+              <h4 className="font-semibold mb-3">Interests & Hobbies</h4>
+              <div className="flex flex-wrap gap-2">
+                <span className="skill-badge text-xs">Smart Home Automation</span>
+                <span className="skill-badge text-xs">DIY Tech Projects</span>
+                <span className="skill-badge text-xs">3D Printing</span>
+                <span className="skill-badge text-xs">IoT Development</span>
+              </div>
             </div>
           </div>
         </div>
