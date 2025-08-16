@@ -67,6 +67,7 @@ export default {
 				'md': 'var(--shadow-md)',
 				'lg': 'var(--shadow-lg)',
 				'glow': 'var(--shadow-glow)',
+				'tech': 'var(--shadow-tech)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
