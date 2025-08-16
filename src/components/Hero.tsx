@@ -1,6 +1,6 @@
 import { ArrowDown, Download, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import portraitImg from "@/assets/ionut-portrait.jpg"
+import portraitImg from "/lovable-uploads/63e2620a-0d4a-482f-82b4-7df585ec4907.png"
 
 export function Hero() {
   return (

@@ -17,10 +17,7 @@ export function Header() {
     <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="text-2xl font-bold text-gradient">
-            IS
-          </a>
+          {/* Logo - Removed as requested */}
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
