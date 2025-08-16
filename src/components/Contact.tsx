@@ -9,9 +9,10 @@ import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 
 const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  message: z.string().min(10, "Message must be at least 10 characters")
+  name: z.string().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
+  email: z.string().email("Please enter a valid email address").max(255, "Email must be less than 255 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters").max(2000, "Message must be less than 2000 characters"),
+  honeypot: z.string().optional()
 })
 
 type ContactForm = z.infer<typeof contactSchema>
@@ -26,6 +27,12 @@ export function Contact() {
 
   const onSubmit = async (data: ContactForm) => {
     setIsSubmitting(true)
+    
+    // Check honeypot for spam protection
+    if (data.honeypot) {
+      setIsSubmitting(false)
+      return // Silent rejection for bots
+    }
     
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000))
@@ -94,6 +101,15 @@ export function Contact() {
             <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
             
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              {/* Honeypot field for spam protection */}
+              <div style={{ display: 'none' }}>
+                <Input
+                  {...register("honeypot")}
+                  autoComplete="off"
+                  tabIndex={-1}
+                />
+              </div>
+              
               <div>
                 <Input
                   placeholder="Your Name"

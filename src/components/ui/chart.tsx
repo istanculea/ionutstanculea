@@ -86,7 +86,13 @@ ${colorConfig
     const color =
       itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ||
       itemConfig.color
-    return color ? `  --color-${key}: ${color};` : null
+    
+    // Validate color to prevent CSS injection
+    if (color && typeof color === 'string') {
+      const isValidColor = /^(#[0-9a-fA-F]{3,8}|rgb\(.*\)|rgba\(.*\)|hsl\(.*\)|hsla\(.*\)|[a-zA-Z]+|var\(--[a-zA-Z0-9-]+\))$/.test(color.trim())
+      return isValidColor ? `  --color-${key}: ${color};` : null
+    }
+    return null
   })
   .join("\n")}
 }
