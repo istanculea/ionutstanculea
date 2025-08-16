@@ -1,7 +1,10 @@
 import { Calendar, Clock, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useNavigate } from "react-router-dom"
 
 export function Blog() {
+  const navigate = useNavigate()
+  
   const blogPosts = [
     {
       id: 1,
@@ -10,7 +13,8 @@ export function Blog() {
       date: "March 12, 2024",
       readTime: "10 min read",
       category: "Cloud Infrastructure",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&crop=entropy&auto=format"
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&crop=entropy&auto=format",
+      slug: "/blog/azure-terraform"
     },
     {
       id: 2, 
@@ -19,7 +23,8 @@ export function Blog() {
       date: "February 28, 2024",
       readTime: "8 min read",
       category: "DevOps",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop&crop=entropy&auto=format"
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop&crop=entropy&auto=format",
+      slug: "/blog/grafana-monitoring"
     },
     {
       id: 3,
@@ -28,7 +33,8 @@ export function Blog() {
       date: "February 15, 2024", 
       readTime: "12 min read",
       category: "Kubernetes",
-      image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&h=400&fit=crop&crop=entropy&auto=format"
+      image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&h=400&fit=crop&crop=entropy&auto=format",
+      slug: "/blog/kubernetes-best-practices"
     }
   ]
 
@@ -48,6 +54,7 @@ export function Blog() {
               key={post.id}
               className="surface-card overflow-hidden group cursor-pointer"
               style={{ animationDelay: `${index * 150}ms` }}
+              onClick={() => navigate(post.slug)}
             >
               <div className="aspect-video overflow-hidden">
                 <img
@@ -85,6 +92,10 @@ export function Blog() {
                 <Button 
                   variant="ghost" 
                   className="group/btn p-0 h-auto font-medium text-primary hover:text-primary-dark"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    navigate(post.slug)
+                  }}
                 >
                   Read more
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />

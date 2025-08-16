@@ -40,11 +40,15 @@ export function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="btn-hero group">
-                View Portfolio
-                <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button className="btn-outline group">
+              <Button 
+                className="btn-outline group"
+                onClick={() => {
+                  const link = document.createElement('a')
+                  link.href = '/cv.pdf'
+                  link.download = 'Ionut_Stanculea_CV.pdf'
+                  link.click()
+                }}
+              >
                 <Download className="mr-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
                 Download CV
               </Button>
