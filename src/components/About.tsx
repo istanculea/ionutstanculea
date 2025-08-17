@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Award, Cloud, Users, TrendingUp, Download, Heart } from "lucide-react"
+import { Award, Cloud, Users, TrendingUp, MapPin, Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 // Using the new uploaded portrait image
@@ -160,10 +160,13 @@ export function About() {
             <div className="pt-4">
               <Button 
                 className="btn-hero hover-scale" 
-                onClick={() => window.open('/cv.pdf', '_blank')}
+                onClick={() => {
+                  const experienceSection = document.getElementById('experience');
+                  experienceSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
-                <Download className="h-4 w-4 mr-2" />
-                Download Resume
+                <MapPin className="h-4 w-4 mr-2" />
+                Career Journey
               </Button>
             </div>
           </div>
