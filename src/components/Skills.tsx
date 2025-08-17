@@ -73,7 +73,7 @@ export function Skills() {
     : skillCategories.filter(cat => cat.category === activeFilter)
 
   const additionalSkills = [
-    { name: "CAD & Design", skills: ["CATIA V5", "Solid Edge", "AutoCAD"] }
+    { name: "Other Tools", skills: ["CATIA V5", "Solid Edge", "AutoCAD"] }
   ]
 
   const languageSkills = [
@@ -137,13 +137,13 @@ export function Skills() {
         <div className="text-center space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-4">
             <Sparkles className="h-4 w-4" />
-            <span className="text-sm font-medium">Technical Expertise</span>
+            <span className="text-sm font-medium">Core Capabilities</span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-            Skills & Technologies
+            Technical Skills
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Cloud infrastructure and DevOps technologies I work with daily to build scalable solutions
+            Hands-on with cloud, CI/CD, containers, and observability—delivering reliable, scalable systems.
           </p>
         </div>
 
@@ -223,8 +223,8 @@ export function Skills() {
         {/* Language Skills */}
         <div className="glass-card p-8">
           <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold mb-2">Language Proficiency</h3>
-            <p className="text-muted-foreground">Global communication skills</p>
+            <h3 className="text-3xl font-bold mb-2">Languages</h3>
+            <p className="text-muted-foreground">Fluent, business-ready communication.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {languageSkills.map((lang, index) => (
