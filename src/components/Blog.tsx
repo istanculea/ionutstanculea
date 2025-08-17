@@ -41,9 +41,9 @@ export function Blog() {
     {
       id: 4,
       title: "Deploy a Secure OpenVPN Server in Minutes: Step-by-Step Guide",
-      excerpt: "A comprehensive guide to deploying secure OpenVPN servers with automation, certificate management, and essential security practices for production environments.",
+      excerpt: "Secure remote access is a must in modern infrastructures—whether for remote teams, personal labs, or connecting multiple office sites.",
       date: "August 16, 2025",
-      readTime: "12 min read",
+      readTime: "10 min read",
       category: "Networking",
       image: "/lovable-uploads/de9e7292-3c71-4a96-a5fb-1ff3991f7846.png",
       slug: "/blog/openvpn-server-setup"
