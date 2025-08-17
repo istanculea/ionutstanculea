@@ -4,7 +4,7 @@ import portraitImg from "/lovable-uploads/63e2620a-0d4a-482f-82b4-7df585ec4907.p
 
 export function Hero() {
   return (
-    <section className="min-h-screen surface-hero flex items-center justify-center px-6 py-12">
+    <section id="home" className="min-h-screen surface-hero flex items-center justify-center px-6 py-12">
       <div className="container max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}

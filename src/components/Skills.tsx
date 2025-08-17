@@ -44,8 +44,14 @@ export function Skills() {
   ]
 
   const additionalSkills = [
-    { name: "CAD & Design", skills: ["CATIA V5", "Solid Edge", "AutoCAD"] },
-    { name: "Languages", skills: ["Romanian (Native)", "English (C2)", "Spanish (B1)", "Italian (A2)"] }
+    { name: "CAD & Design", skills: ["CATIA V5", "Solid Edge", "AutoCAD"] }
+  ]
+
+  const languageSkills = [
+    { language: "Romanian", level: "Native" },
+    { language: "English", level: "C2" },
+    { language: "Spanish", level: "B1" },
+    { language: "Italian", level: "A2" }
   ]
 
   return (
@@ -98,6 +104,33 @@ export function Skills() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Language Skills */}
+        <div className="mt-12">
+          <div className="surface-card p-8">
+            <h3 className="text-2xl font-bold mb-6 text-center">Language Skills</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {languageSkills.map((lang) => (
+                <div key={lang.language} className="text-center space-y-3">
+                  <h4 className="font-semibold text-lg">{lang.language}</h4>
+                  <div className="relative">
+                    <div className="w-full h-2 bg-surface rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-500"
+                        style={{ 
+                          width: lang.level === 'Native' ? '100%' : 
+                                 lang.level === 'C2' ? '90%' : 
+                                 lang.level === 'B1' ? '65%' : '40%' 
+                        }}
+                      ></div>
+                    </div>
+                    <span className="text-sm text-muted-foreground font-medium mt-2 block">{lang.level}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
