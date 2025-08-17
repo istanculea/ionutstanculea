@@ -45,7 +45,7 @@ export function Blog() {
       date: "August 16, 2025",
       readTime: "8 min read",
       category: "Networking",
-      image: "/lovable-uploads/170f5004-9944-4459-b193-b8cca34127e6.png",
+      image: "/lovable-uploads/de9e7292-3c71-4a96-a5fb-1ff3991f7846.png",
       slug: "/blog/openvpn-server-setup"
     },
     {

@@ -52,7 +52,7 @@ export default function PostOpenVPN() {
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/lovable-uploads/170f5004-9944-4459-b193-b8cca34127e6.png"
+            src="/lovable-uploads/de9e7292-3c71-4a96-a5fb-1ff3991f7846.png"
             alt="VPN shield over world map illustration for OpenVPN article"
             className="w-full h-full object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 1024px"
