@@ -52,7 +52,7 @@ export default function PostDeploymentMonitoring() {
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/lovable-uploads/25e58ea7-4019-41eb-9961-8c87a4e5a3b6.png"
+            src="/lovable-uploads/c1178383-bd7a-40e1-aaba-c8fad01d0123.png"
             alt="Post-deployment monitoring dashboards illustration"
             className="w-full h-full object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 1024px"

@@ -14,7 +14,7 @@ export function Blog() {
       date: "August 17, 2025",
       readTime: "9 min read",
       category: "DevOps",
-      image: "/lovable-uploads/25e58ea7-4019-41eb-9961-8c87a4e5a3b6.png",
+      image: "/lovable-uploads/c1178383-bd7a-40e1-aaba-c8fad01d0123.png",
       slug: "/blog/post-deployment-monitoring",
       featured: true
     },
