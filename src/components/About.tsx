@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Award, Cloud, Users, TrendingUp, Download, Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import portraitImage from "@/assets/ionut-portrait.jpg"
+// Using the new uploaded portrait image
 
 export function About() {
   const [counters, setCounters] = useState({
@@ -173,9 +173,9 @@ export function About() {
             <div className="relative animate-scale-in">
               <div className="relative">
                 <img
-                  src={portraitImage}
+                  src="/lovable-uploads/25e58ea7-4019-41eb-9961-8c87a4e5a3b6.png"
                   alt="Ionuț Stănculea - Cloud & Operations Engineer"
-                  className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-tech animate-float"
+                  className="w-80 h-80 lg:w-96 lg:h-96 object-cover object-center rounded-full shadow-tech animate-float"
                 />
                 {/* Decorative ring */}
                 <div className="absolute inset-0 rounded-full ring-4 ring-primary/20 ring-offset-4 ring-offset-background"></div>
