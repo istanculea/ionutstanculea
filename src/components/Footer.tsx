@@ -5,12 +5,12 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   const quickLinks = [
-    { name: "About Me", href: "#about" },
+    { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
-    { name: "Education", href: "#education" },
+    { name: "Learning", href: "#education" },
     { name: "Blog", href: "/blog" },
-    { name: "Contact Me", href: "#contact" },
+    { name: "Get in Touch", href: "#contact" },
   ]
 
   const socialLinks = [
@@ -66,10 +66,11 @@ export function Footer() {
               Cloud Infrastructure Engineer passionate about building scalable, automated solutions that drive business growth and innovation.
             </p>
             <Button 
+              variant="cta"
               className="w-full sm:w-auto"
               onClick={() => scrollToSection('#contact')}
             >
-              Hire Me
+              Get in Touch
               <ExternalLink className="ml-2 h-4 w-4" />
             </Button>
           </div>
@@ -82,7 +83,7 @@ export function Footer() {
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-muted-foreground hover:text-foreground transition-colors text-left text-sm"
+                  className="text-muted-foreground hover:text-primary transition-colors text-left text-sm hover:translate-x-1 transition-transform duration-200"
                 >
                   {link.name}
                 </button>
