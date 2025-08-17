@@ -12,7 +12,7 @@ export function Blog() {
       title: "Post Deployment: Monitoring and Error Tracking",
       excerpt: "Learn how to set up effective monitoring and error tracking post-deployment to maintain stable production environments and reduce downtime.",
       date: "August 17, 2025",
-      readTime: "9 min read",
+      readTime: "15 min read",
       category: "DevOps",
       image: "/lovable-uploads/c1178383-bd7a-40e1-aaba-c8fad01d0123.png",
       slug: "/blog/post-deployment-monitoring",
