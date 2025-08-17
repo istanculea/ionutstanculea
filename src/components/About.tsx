@@ -175,7 +175,9 @@ export function About() {
                 <img
                   src="/lovable-uploads/170f5004-9944-4459-b193-b8cca34127e6.png"
                   alt="Ionuț Stănculea - Cloud & Operations Engineer"
-                  className="w-80 h-80 lg:w-96 lg:h-96 object-cover object-center rounded-full shadow-tech animate-float"
+                  className="w-80 h-80 lg:w-96 lg:h-96 object-cover object-[50%_20%] rounded-full shadow-tech animate-float"
+                  loading="lazy"
+                  decoding="async"
                 />
                 {/* Decorative ring */}
                 <div className="absolute inset-0 rounded-full ring-4 ring-primary/20 ring-offset-4 ring-offset-background"></div>
