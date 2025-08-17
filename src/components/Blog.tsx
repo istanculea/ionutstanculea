@@ -20,7 +20,7 @@ export function Blog() {
     },
     {
       id: 2,
-      title: "Database Setup: MongoDB",
+      title: "Database Setup: MongoDB – Lessons from My Projects",
       excerpt: "Step-by-step guide on setting up MongoDB for development and production, including indexing, replication, and security best practices.",
       date: "August 16, 2025",
       readTime: "7 min read",

@@ -42,18 +42,18 @@ export default function PostDatabaseMongoDB() {
           </div>
           
           <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-            Database Setup: MongoDB
+            Database Setup: MongoDB – Lessons from My Projects
           </h1>
           
           <p className="text-xl text-muted-foreground">
-            I’ve worked on multiple projects where choosing the right database setup was crucial. MongoDB has consistently been my go-to for flexible, schema-less storage. In this post, I’ll share my approach to setting up a robust MongoDB instance for development and production, including security, backups, and performance considerations.
+            I've worked on multiple projects where choosing the right database setup was crucial. Time and again, MongoDB has been my go-to for flexible, schema-less storage. In this post, I'll share my approach to setting up a robust MongoDB instance for development and production, including installation, performance, security, backups, and lessons learned along the way.
           </p>
         </header>
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
             src="/lovable-uploads/aa9dab4a-1c28-4a0e-a6b6-3715a9725d8d.png"
-            alt="MongoDB setup article illustration"
+            alt="MongoDB database setup and configuration illustration"
             className="w-full h-full object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 1024px"
             loading="lazy"
@@ -67,39 +67,158 @@ export default function PostDatabaseMongoDB() {
         <div className="prose prose-lg max-w-none">
           <h2>Why MongoDB?</h2>
           <p>
-            MongoDB’s document model makes it incredibly flexible for rapidly changing data structures. I often choose it when building APIs that evolve quickly, or when relationships between entities are sparse. Its scalability and strong community support make it reliable for production workloads.
+            MongoDB's document model makes it incredibly flexible for rapidly changing data structures. I often choose it when building APIs that evolve quickly, or when relationships between entities are sparse. Its scalability, replication features, and strong community support make it reliable for production workloads.
           </p>
+          
+          <p>
+            From my experience, MongoDB works best when:
+          </p>
+          <ul>
+            <li>APIs and data structures evolve rapidly</li>
+            <li>Relationships between entities are sparse</li>
+            <li>High availability and scalability are needed</li>
+          </ul>
 
           <h2>Installation and Initial Setup</h2>
-          <ul>
-            <li>Use official MongoDB packages or Docker containers for reproducibility.</li>
-            <li>Always configure authentication with strong credentials; never leave a blank admin account.</li>
-            <li>Set up replica sets for high availability, even in small environments, to prepare for future scaling.</li>
-          </ul>
+          <p>
+            Getting MongoDB right from the start saves headaches later. Here's my approach:
+          </p>
+          
+          <p>
+            <strong>Official packages or Docker containers:</strong> Docker ensures reproducibility for dev; packages are preferred for production.
+          </p>
+          
+          <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm my-4">
+            <code>docker run -d -p 27017:27017 --name mongodb-dev -v mongo-data:/data/db mongo:7.0</code>
+          </div>
+          
+          <p>
+            <strong>Authentication:</strong> Always configure with strong credentials; never leave a blank admin account.
+          </p>
+          
+          <p>
+            <strong>Replica Sets:</strong> Even small environments benefit from replica sets for high availability and future scaling:
+          </p>
+          
+          <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm my-4">
+            <code>mongod --replSet rs0 --port 27017 --dbpath /data/db</code>
+          </div>
 
           <h2>Performance and Indexing</h2>
           <p>
-            Indexing is critical for performance. I regularly analyze query patterns and create compound indexes where needed. For large collections, I monitor slow queries and leverage MongoDB’s explain plan to optimize them.
+            Performance is critical. Some lessons I've learned:
           </p>
+          
+          <ul>
+            <li><strong>Indexing:</strong> Analyze query patterns and create compound indexes where needed. Avoid over-indexing, which slows writes.</li>
+            <li><strong>Monitoring:</strong> For large collections, monitor slow queries and use MongoDB's explain plan to optimize performance.</li>
+            <li><strong>Aggregation & Caching:</strong> Use aggregation pipelines to reduce application-side processing and consider in-memory caching for frequent queries.</li>
+          </ul>
 
           <h2>Backups and Disaster Recovery</h2>
+          <p>
+            Backups only matter if they can be restored. My approach:
+          </p>
+          
           <ul>
-            <li>Use built-in `mongodump` or managed snapshots in cloud deployments.</li>
-            <li>Test restore procedures regularly; a backup is useless unless you can recover quickly.</li>
-            <li>For mission-critical apps, maintain offsite backups and monitor replication lag.</li>
+            <li><strong>Tools:</strong> Use built-in mongodump or managed cloud snapshots.</li>
+            <li><strong>Testing:</strong> Regularly test restore procedures.</li>
+            <li><strong>Offsite Backups:</strong> Maintain offsite copies for mission-critical apps and monitor replication lag.</li>
           </ul>
+          
+          <p>Example commands:</p>
+          
+          <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm my-4">
+            <code># Backup<br/>
+            mongodump --db mydb --out /backups/mydb-$(date +%F)<br/><br/>
+            # Restore<br/>
+            mongorestore /backups/mydb-YYYY-MM-DD</code>
+          </div>
 
           <h2>Security Best Practices</h2>
+          <p>
+            Security is non-negotiable. I implement:
+          </p>
+          
           <ul>
-            <li>Enable TLS for data in transit.</li>
-            <li>Limit network exposure using firewall rules or VPC peering.</li>
-            <li>Use role-based access control to restrict user permissions appropriately.</li>
+            <li>TLS/SSL for data in transit</li>
+            <li>Network restrictions via firewalls or VPC peering</li>
+            <li>Role-based access control (RBAC) to limit permissions</li>
+            <li>Regular audit logs and monitoring for anomalies</li>
           </ul>
+
+          <h2>Development vs Production Setup</h2>
+          <div className="overflow-x-auto my-6">
+            <table className="min-w-full border border-gray-300">
+              <thead>
+                <tr className="bg-gray-50">
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Aspect</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Development</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Production</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-medium">Setup</td>
+                  <td className="border border-gray-300 px-4 py-2">Docker, lightweight, fast iteration</td>
+                  <td className="border border-gray-300 px-4 py-2">Official packages, high availability</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="border border-gray-300 px-4 py-2 font-medium">Authentication</td>
+                  <td className="border border-gray-300 px-4 py-2">Optional for local</td>
+                  <td className="border border-gray-300 px-4 py-2">Mandatory TLS & RBAC</td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-medium">Replica Sets</td>
+                  <td className="border border-gray-300 px-4 py-2">Single-node or small set</td>
+                  <td className="border border-gray-300 px-4 py-2">3+ nodes, failover, optional sharding</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="border border-gray-300 px-4 py-2 font-medium">Backups</td>
+                  <td className="border border-gray-300 px-4 py-2">Manual mongodump</td>
+                  <td className="border border-gray-300 px-4 py-2">Automated snapshots, offsite, incremental</td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-medium">Monitoring</td>
+                  <td className="border border-gray-300 px-4 py-2">Basic logs</td>
+                  <td className="border border-gray-300 px-4 py-2">Grafana, Prometheus, cloud-native alerts</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="border border-gray-300 px-4 py-2 font-medium">Indexing</td>
+                  <td className="border border-gray-300 px-4 py-2">Minimal, for testing</td>
+                  <td className="border border-gray-300 px-4 py-2">Optimized for performance</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <p>
+            Treating dev and prod separately avoids costly mistakes, especially around security and performance.
+          </p>
 
           <h2>Lessons Learned</h2>
           <p>
-            MongoDB can scale beautifully if you plan ahead. Small mistakes early—like unsecured deployments or missing backups—can cost you dearly. By taking security, indexing, and replication seriously, you create a stable foundation that can grow with your applications.
+            MongoDB can scale beautifully if you plan ahead. Some key takeaways from my experience:
           </p>
+          
+          <ul>
+            <li><strong>Plan for scaling:</strong> Replica sets and indexing pay off in the long run.</li>
+            <li><strong>Secure early:</strong> Never leave accounts exposed, use TLS, and implement RBAC.</li>
+            <li><strong>Monitor performance:</strong> Regularly check slow queries, replication lag, and resource usage.</li>
+            <li><strong>Test backups:</strong> A backup that cannot be restored is useless.</li>
+            <li><strong>Separate environments:</strong> Dev ≠ Prod—keep configs, credentials, and monitoring separate.</li>
+          </ul>
+          
+          <p>
+            By taking security, indexing, replication, and backups seriously, you create a stable foundation that grows with your applications.
+          </p>
+          
+          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 my-6">
+            <p className="font-semibold text-blue-800">Pro Tip:</p>
+            <p className="text-blue-700">
+              Treat your database as a first-class citizen in your infrastructure. Proper setup and maintenance prevent surprises and let your apps scale reliably.
+            </p>
+          </div>
         </div>
       </article>
     </div>
