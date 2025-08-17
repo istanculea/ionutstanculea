@@ -100,13 +100,13 @@ export function Blog() {
                   e.currentTarget.src = '/placeholder.svg';
                 }}
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-sm p-6 text-white">
                 <span className="cloud-badge bg-white/30 text-white">{featuredPost.category}</span>
                 <h3 className="text-3xl font-bold mt-2">{featuredPost.title}</h3>
                 <p className="mt-2 text-lg">{featuredPost.excerpt}</p>
                 <Button 
                   variant="outline" 
-                  className="mt-4 text-white border-white hover:bg-white hover:text-black"
+                  className="mt-4 bg-transparent text-white border-white/80 hover:bg-white hover:text-black focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black/10"
                   onClick={(e) => {
                     e.stopPropagation()
                     navigate(featuredPost.slug)
