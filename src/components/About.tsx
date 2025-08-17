@@ -159,14 +159,16 @@ export function About() {
             {/* CTA */}
             <div className="pt-4">
               <Button 
-                className="btn-hero hover-scale" 
+                variant="outline"
+                className="relative overflow-hidden group border-primary/30 bg-gradient-to-r from-primary/5 to-accent/5 hover:from-primary/10 hover:to-accent/10 transition-all duration-300 hover-scale shadow-lg hover:shadow-xl hover:shadow-primary/20" 
                 onClick={() => {
                   const experienceSection = document.getElementById('experience');
                   experienceSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                <MapPin className="h-4 w-4 mr-2" />
-                Career Journey
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <MapPin className="h-4 w-4 mr-2 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+                <span className="relative z-10">Career Journey</span>
               </Button>
             </div>
           </div>
