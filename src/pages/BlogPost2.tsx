@@ -52,10 +52,11 @@ export default function PostDatabaseMongoDB() {
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/blog/mongodb.jpg"
-            alt="MongoDB Setup"
+            src="/blog/mongodb.webp"
+            alt="MongoDB Database Setup and Configuration"
             className="w-full h-full object-cover"
             loading="lazy"
+            decoding="async"
             onError={(e) => {
               e.currentTarget.src = '/placeholder.svg';
             }}

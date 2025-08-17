@@ -76,11 +76,11 @@ export function Footer() {
             <h3 className="font-semibold text-foreground">Contact</h3>
             <div className="space-y-3">
               <a 
-                href="mailto:ionut@example.com"
+                href="mailto:stanculea.ionut.93@gmail.com"
                 className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors text-sm group"
               >
                 <Mail className="h-4 w-4 group-hover:text-primary transition-colors" />
-                <span>ionut@example.com</span>
+                <span>stanculea.ionut.93@gmail.com</span>
               </a>
               <div className="flex items-center space-x-2 text-muted-foreground text-sm">
                 <MapPin className="h-4 w-4" />

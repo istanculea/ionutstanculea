@@ -14,7 +14,7 @@ export function Blog() {
       date: "August 17, 2025",
       readTime: "9 min read",
       category: "DevOps",
-      image: "/blog/monitoring.jpg",
+      image: "/blog/monitoring.webp",
       slug: "/blog/post-deployment-monitoring",
       featured: true
     },
@@ -25,7 +25,7 @@ export function Blog() {
       date: "August 16, 2025",
       readTime: "7 min read",
       category: "Database",
-      image: "/blog/mongodb.jpg",
+      image: "/blog/mongodb.webp",
       slug: "/blog/mongodb-setup"
     },
     {
@@ -35,7 +35,7 @@ export function Blog() {
       date: "August 15, 2025",
       readTime: "12 min read",
       category: "Cloud Infrastructure",
-      image: "/blog/serverless.jpg",
+      image: "/blog/serverless.webp",
       slug: "/blog/serverless-website-recaptcha"
     },
     {
@@ -45,7 +45,7 @@ export function Blog() {
       date: "August 16, 2025",
       readTime: "8 min read",
       category: "Networking",
-      image: "/blog/openvpn.jpg",
+      image: "/blog/openvpn.webp",
       slug: "/blog/openvpn-server-setup"
     },
     {
@@ -55,7 +55,7 @@ export function Blog() {
       date: "August 17, 2025",
       readTime: "6 min read",
       category: "Linux",
-      image: "/blog/linux-acl.jpg",
+      image: "/blog/linux-acl.webp",
       slug: "/blog/linux-acl-management"
     }
   ]
@@ -94,6 +94,11 @@ export function Blog() {
                 src={featuredPost.image}
                 alt={featuredPost.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+                onError={(e) => {
+                  e.currentTarget.src = '/placeholder.svg';
+                }}
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
                 <span className="cloud-badge bg-white/30 text-white">{featuredPost.category}</span>
@@ -130,6 +135,11 @@ export function Blog() {
                   src={post.image}
                   alt={post.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => {
+                    e.currentTarget.src = '/placeholder.svg';
+                  }}
                 />
               </div>
               

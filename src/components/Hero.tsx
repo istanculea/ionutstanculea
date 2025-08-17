@@ -31,12 +31,15 @@ export function Hero() {
             <div className="flex items-center space-x-3 text-sm text-muted-foreground">
               <span className="flex items-center space-x-1">
                 <span>📍</span>
-                <span>Bucharest, Romania</span>
+                <span>Remote / Europe</span>
               </span>
-              <span className="flex items-center space-x-1">
+              <a 
+                href="mailto:stanculea.ionut.93@gmail.com"
+                className="flex items-center space-x-1 hover:text-primary transition-colors"
+              >
                 <span>✉️</span>
                 <span>stanculea.ionut.93@gmail.com</span>
-              </span>
+              </a>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">

@@ -52,10 +52,11 @@ export default function PostDeploymentMonitoring() {
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/blog/monitoring-new.jpg"
-            alt="Monitoring and Error Tracking"
+            src="/blog/monitoring.webp"
+            alt="Monitoring and Error Tracking Dashboard"
             className="w-full h-full object-cover"
             loading="lazy"
+            decoding="async"
             onError={(e) => {
               e.currentTarget.src = '/placeholder.svg';
             }}

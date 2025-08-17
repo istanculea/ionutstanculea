@@ -52,10 +52,11 @@ export default function PostOpenVPN() {
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/blog/openvpn.jpg"
-            alt="OpenVPN Setup"
+            src="/blog/openvpn.webp"
+            alt="OpenVPN Secure Network Setup and Configuration"
             className="w-full h-full object-cover"
             loading="lazy"
+            decoding="async"
             onError={(e) => {
               e.currentTarget.src = '/placeholder.svg';
             }}

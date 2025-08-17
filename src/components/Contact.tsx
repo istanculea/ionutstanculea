@@ -11,6 +11,7 @@ import { useToast } from "@/hooks/use-toast"
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
   email: z.string().email("Please enter a valid email address").max(255, "Email must be less than 255 characters"),
+  subject: z.string().min(3, "Subject must be at least 3 characters").max(150, "Subject must be less than 150 characters"),
   message: z.string().min(10, "Message must be at least 10 characters").max(2000, "Message must be less than 2000 characters"),
   honeypot: z.string().optional()
 })
@@ -39,7 +40,7 @@ export function Contact() {
     
     toast({
       title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
+      description: "Thanks! I'll get back to you within 24 hours.",
     })
     
     reset()
@@ -56,7 +57,7 @@ export function Contact() {
     {
       icon: <MapPin className="h-5 w-5" />,
       label: "Location",
-      value: "Bucharest, Romania",
+      value: "Remote / Europe",
       href: "#"
     }
   ]
@@ -119,6 +120,17 @@ export function Contact() {
                 />
                 {errors.email && (
                   <p className="text-destructive text-sm mt-1">{errors.email.message}</p>
+                )}
+              </div>
+
+              <div>
+                <Input
+                  placeholder="Subject"
+                  {...register("subject")}
+                  className={errors.subject ? "border-destructive" : ""}
+                />
+                {errors.subject && (
+                  <p className="text-destructive text-sm mt-1">{errors.subject.message}</p>
                 )}
               </div>
 

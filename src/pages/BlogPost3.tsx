@@ -52,10 +52,11 @@ export default function PostServerlessRecaptcha() {
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/blog/serverless.jpg"
-            alt="Serverless Website on AWS"
+            src="/blog/serverless.webp"
+            alt="AWS Serverless Architecture with Lambda and reCAPTCHA"
             className="w-full h-full object-cover"
             loading="lazy"
+            decoding="async"
             onError={(e) => {
               e.currentTarget.src = '/placeholder.svg';
             }}
