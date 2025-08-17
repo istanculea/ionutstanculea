@@ -55,7 +55,7 @@ export function Blog() {
       date: "August 17, 2025",
       readTime: "6 min read",
       category: "Linux",
-      image: "/blog/linux-acl.webp",
+      image: "/lovable-uploads/e98ddacc-29c4-4915-9c1c-3025e3925c7b.png",
       slug: "/blog/linux-acl-management"
     }
   ]
