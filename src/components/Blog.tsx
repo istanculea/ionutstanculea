@@ -40,10 +40,10 @@ export function Blog() {
     },
     {
       id: 4,
-      title: "Create an OpenVPN Server in Seconds",
-      excerpt: "Quickly set up a secure OpenVPN server on any cloud provider to safely connect remote teams and ensure encrypted communication.",
+      title: "Deploy a Secure OpenVPN Server in Minutes: Step-by-Step Guide",
+      excerpt: "A comprehensive guide to deploying secure OpenVPN servers with automation, certificate management, and essential security practices for production environments.",
       date: "August 16, 2025",
-      readTime: "8 min read",
+      readTime: "12 min read",
       category: "Networking",
       image: "/lovable-uploads/de9e7292-3c71-4a96-a5fb-1ff3991f7846.png",
       slug: "/blog/openvpn-server-setup"
