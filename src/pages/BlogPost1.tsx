@@ -64,9 +64,9 @@ export default function PostDeploymentMonitoring() {
           />
         </div>
 
-        <div className="prose prose-lg max-w-none prose-stone dark:prose-invert">
+        <div className="prose prose-lg max-w-none dark:prose-invert">
           <div className="bg-primary/10 border-l-4 border-primary p-4 my-6 rounded-r-lg">
-            <p className="text-primary dark:text-primary italic font-medium">
+            <p className="text-primary italic font-medium">
               "In DevOps, deployment isn't the finish line; resilience and observability are."
             </p>
           </div>
@@ -110,7 +110,7 @@ export default function PostDeploymentMonitoring() {
             <li><strong>Cloud-Native Monitoring:</strong> CloudWatch, Azure Monitor, or GCP Stackdriver provide telemetry for cloud infrastructure components. Combining these with Prometheus/Grafana gives full-stack insights across services.</li>
           </ul>
           
-          <div className="bg-secondary border-l-4 border-muted-foreground p-4 my-6 rounded-r-lg">
+          <div className="bg-muted border-l-4 border-primary p-4 my-6 rounded-r-lg">
             <p className="text-muted-foreground italic font-medium">
               "Metrics without context are noise. Observability transforms numbers into actionable insights."
             </p>

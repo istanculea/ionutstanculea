@@ -64,7 +64,7 @@ export default function PostDatabaseMongoDB() {
           />
         </div>
 
-        <div className="prose prose-lg max-w-none">
+        <div className="prose prose-lg max-w-none dark:prose-invert">
           <h2>Why MongoDB?</h2>
           <p>
             MongoDB's document model makes it incredibly flexible for rapidly changing data structures. I often choose it when building APIs that evolve quickly, or when relationships between entities are sparse. Its scalability, replication features, and strong community support make it reliable for production workloads.
@@ -88,9 +88,9 @@ export default function PostDatabaseMongoDB() {
             <strong>Official packages or Docker containers:</strong> Docker ensures reproducibility for dev; packages are preferred for production.
           </p>
           
-          <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm my-4">
-            <code>docker run -d -p 27017:27017 --name mongodb-dev -v mongo-data:/data/db mongo:7.0</code>
-          </div>
+           <div className="bg-muted p-4 rounded-lg font-mono text-sm my-4 border border-border">
+             <code className="text-foreground">docker run -d -p 27017:27017 --name mongodb-dev -v mongo-data:/data/db mongo:7.0</code>
+           </div>
           
           <p>
             <strong>Authentication:</strong> Always configure with strong credentials; never leave a blank admin account.
@@ -100,9 +100,9 @@ export default function PostDatabaseMongoDB() {
             <strong>Replica Sets:</strong> Even small environments benefit from replica sets for high availability and future scaling:
           </p>
           
-          <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm my-4">
-            <code>mongod --replSet rs0 --port 27017 --dbpath /data/db</code>
-          </div>
+           <div className="bg-muted p-4 rounded-lg font-mono text-sm my-4 border border-border">
+             <code className="text-foreground">mongod --replSet rs0 --port 27017 --dbpath /data/db</code>
+           </div>
 
           <h2>Performance and Indexing</h2>
           <p>
@@ -128,12 +128,12 @@ export default function PostDatabaseMongoDB() {
           
           <p>Example commands:</p>
           
-          <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm my-4">
-            <code># Backup<br/>
-            mongodump --db mydb --out /backups/mydb-$(date +%F)<br/><br/>
-            # Restore<br/>
-            mongorestore /backups/mydb-YYYY-MM-DD</code>
-          </div>
+           <div className="bg-muted p-4 rounded-lg font-mono text-sm my-4 border border-border">
+             <code className="text-foreground"># Backup<br/>
+             mongodump --db mydb --out /backups/mydb-$(date +%F)<br/><br/>
+             # Restore<br/>
+             mongorestore /backups/mydb-YYYY-MM-DD</code>
+           </div>
 
           <h2>Security Best Practices</h2>
           <p>
@@ -148,49 +148,49 @@ export default function PostDatabaseMongoDB() {
           </ul>
 
           <h2>Development vs Production Setup</h2>
-          <div className="overflow-x-auto my-6">
-            <table className="min-w-full border border-gray-300">
-              <thead>
-                <tr className="bg-gray-50">
-                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Aspect</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Development</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Production</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-medium">Setup</td>
-                  <td className="border border-gray-300 px-4 py-2">Docker, lightweight, fast iteration</td>
-                  <td className="border border-gray-300 px-4 py-2">Official packages, high availability</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 font-medium">Authentication</td>
-                  <td className="border border-gray-300 px-4 py-2">Optional for local</td>
-                  <td className="border border-gray-300 px-4 py-2">Mandatory TLS & RBAC</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-medium">Replica Sets</td>
-                  <td className="border border-gray-300 px-4 py-2">Single-node or small set</td>
-                  <td className="border border-gray-300 px-4 py-2">3+ nodes, failover, optional sharding</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 font-medium">Backups</td>
-                  <td className="border border-gray-300 px-4 py-2">Manual mongodump</td>
-                  <td className="border border-gray-300 px-4 py-2">Automated snapshots, offsite, incremental</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-medium">Monitoring</td>
-                  <td className="border border-gray-300 px-4 py-2">Basic logs</td>
-                  <td className="border border-gray-300 px-4 py-2">Grafana, Prometheus, cloud-native alerts</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 font-medium">Indexing</td>
-                  <td className="border border-gray-300 px-4 py-2">Minimal, for testing</td>
-                  <td className="border border-gray-300 px-4 py-2">Optimized for performance</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+           <div className="overflow-x-auto my-6">
+             <table className="min-w-full border border-border">
+               <thead>
+                 <tr className="bg-muted">
+                   <th className="border border-border px-4 py-2 text-left font-semibold text-foreground">Aspect</th>
+                   <th className="border border-border px-4 py-2 text-left font-semibold text-foreground">Development</th>
+                   <th className="border border-border px-4 py-2 text-left font-semibold text-foreground">Production</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td className="border border-border px-4 py-2 font-medium text-foreground">Setup</td>
+                   <td className="border border-border px-4 py-2 text-foreground">Docker, lightweight, fast iteration</td>
+                   <td className="border border-border px-4 py-2 text-foreground">Official packages, high availability</td>
+                 </tr>
+                 <tr className="bg-muted">
+                   <td className="border border-border px-4 py-2 font-medium text-foreground">Authentication</td>
+                   <td className="border border-border px-4 py-2 text-foreground">Optional for local</td>
+                   <td className="border border-border px-4 py-2 text-foreground">Mandatory TLS & RBAC</td>
+                 </tr>
+                 <tr>
+                   <td className="border border-border px-4 py-2 font-medium text-foreground">Replica Sets</td>
+                   <td className="border border-border px-4 py-2 text-foreground">Single-node or small set</td>
+                   <td className="border border-border px-4 py-2 text-foreground">3+ nodes, failover, optional sharding</td>
+                 </tr>
+                 <tr className="bg-muted">
+                   <td className="border border-border px-4 py-2 font-medium text-foreground">Backups</td>
+                   <td className="border border-border px-4 py-2 text-foreground">Manual mongodump</td>
+                   <td className="border border-border px-4 py-2 text-foreground">Automated snapshots, offsite, incremental</td>
+                 </tr>
+                 <tr>
+                   <td className="border border-border px-4 py-2 font-medium text-foreground">Monitoring</td>
+                   <td className="border border-border px-4 py-2 text-foreground">Basic logs</td>
+                   <td className="border border-border px-4 py-2 text-foreground">Grafana, Prometheus, cloud-native alerts</td>
+                 </tr>
+                 <tr className="bg-muted">
+                   <td className="border border-border px-4 py-2 font-medium text-foreground">Indexing</td>
+                   <td className="border border-border px-4 py-2 text-foreground">Minimal, for testing</td>
+                   <td className="border border-border px-4 py-2 text-foreground">Optimized for performance</td>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
           
           <p>
             Treating dev and prod separately avoids costly mistakes, especially around security and performance.
@@ -213,12 +213,12 @@ export default function PostDatabaseMongoDB() {
             By taking security, indexing, replication, and backups seriously, you create a stable foundation that grows with your applications.
           </p>
           
-          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 my-6">
-            <p className="font-semibold text-blue-800">Pro Tip:</p>
-            <p className="text-blue-700">
-              Treat your database as a first-class citizen in your infrastructure. Proper setup and maintenance prevent surprises and let your apps scale reliably.
-            </p>
-          </div>
+           <div className="bg-primary/10 border-l-4 border-primary p-4 my-6 rounded-r-lg">
+             <p className="font-semibold text-primary">Pro Tip:</p>
+             <p className="text-foreground">
+               Treat your database as a first-class citizen in your infrastructure. Proper setup and maintenance prevent surprises and let your apps scale reliably.
+             </p>
+           </div>
         </div>
       </article>
     </div>

@@ -29,7 +29,7 @@ export default function PostLinuxACL() {
         
         <header className="mb-12 space-y-6">
           <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Linux</span>
+            <span className="cloud-badge">Linux</span>
             <span className="flex items-center space-x-1">
               <Calendar className="h-4 w-4" />
               <span>August 15, 2025</span>
@@ -62,7 +62,7 @@ export default function PostLinuxACL() {
           />
         </div>
         
-        <div className="prose prose-lg max-w-none space-y-8">
+        <div className="prose prose-lg max-w-none dark:prose-invert space-y-8">
           <div>
             <h2 className="text-2xl font-bold mb-4">Why ACLs?</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
@@ -83,8 +83,8 @@ export default function PostLinuxACL() {
             <p className="text-muted-foreground leading-relaxed mb-4">
               Install ACL utilities if they're missing:
             </p>
-            <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm mb-4">
-              <code># Ubuntu/Debian<br />
+            <div className="bg-muted p-4 rounded-lg font-mono text-sm mb-4 border border-border">
+              <code className="text-foreground"># Ubuntu/Debian<br />
               sudo apt install acl<br /><br />
               # RHEL/CentOS/Fedora<br />
               sudo yum install acl</code>
@@ -92,8 +92,8 @@ export default function PostLinuxACL() {
             <p className="text-muted-foreground leading-relaxed mb-4">
               Ensure your filesystem supports ACLs:
             </p>
-            <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
-              <code>mount | grep acl<br />
+            <div className="bg-muted p-4 rounded-lg font-mono text-sm border border-border">
+              <code className="text-foreground">mount | grep acl<br />
               # If not:<br />
               mount -o remount,acl /dev/sda1</code>
             </div>
@@ -103,19 +103,19 @@ export default function PostLinuxACL() {
             <h2 className="text-2xl font-bold mb-4">Essential Commands</h2>
             <div className="space-y-4">
               <div>
-                <strong>View ACLs:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">getfacl /path/to/file</code>
+                <strong>View ACLs:</strong> <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">getfacl /path/to/file</code>
               </div>
               <div>
-                <strong>Grant user access:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -m u:username:rwx /path/to/file</code>
+                <strong>Grant user access:</strong> <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">setfacl -m u:username:rwx /path/to/file</code>
               </div>
               <div>
-                <strong>Grant group access:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -m g:groupname:rx /path/to/directory</code>
+                <strong>Grant group access:</strong> <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">setfacl -m g:groupname:rx /path/to/directory</code>
               </div>
               <div>
-                <strong>Remove ACL entry:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -x u:username /path/to/file</code>
+                <strong>Remove ACL entry:</strong> <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">setfacl -x u:username /path/to/file</code>
               </div>
               <div>
-                <strong>Remove all ACLs:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -b /path/to/file</code>
+                <strong>Remove all ACLs:</strong> <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">setfacl -b /path/to/file</code>
               </div>
             </div>
           </div>
@@ -126,8 +126,8 @@ export default function PostLinuxACL() {
             <div className="space-y-6">
               <div>
                 <h3 className="text-lg font-semibold mb-2">Shared Project Directory:</h3>
-                <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
-                  <code>mkdir /shared/project<br />
+                <div className="bg-muted p-4 rounded-lg font-mono text-sm border border-border">
+                  <code className="text-foreground">mkdir /shared/project<br />
                   setfacl -m d:g:developers:rwx /shared/project   # Default for new files<br />
                   setfacl -m g:developers:rwx /shared/project     # Current ACL</code>
                 </div>
@@ -135,8 +135,8 @@ export default function PostLinuxACL() {
               
               <div>
                 <h3 className="text-lg font-semibold mb-2">Log File Access for Monitoring Users:</h3>
-                <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
-                  <code>setfacl -R -m u:monitor:r /var/log/myapp/</code>
+                <div className="bg-muted p-4 rounded-lg font-mono text-sm border border-border">
+                  <code className="text-foreground">setfacl -R -m u:monitor:r /var/log/myapp/</code>
                 </div>
               </div>
             </div>
@@ -151,13 +151,13 @@ export default function PostLinuxACL() {
             
             <div className="space-y-4">
               <div>
-                <strong>Recursive ACLs:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -R -m u:username:rwx /path/to/directory/</code>
+                <strong>Recursive ACLs:</strong> <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">setfacl -R -m u:username:rwx /path/to/directory/</code>
               </div>
               <div>
-                <strong>Default ACLs:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -m d:u:username:rwx /path/to/directory/</code>
+                <strong>Default ACLs:</strong> <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">setfacl -m d:u:username:rwx /path/to/directory/</code>
               </div>
               <div>
-                <strong>Backup ACLs before changes:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">getfacl -R /path &gt; backup.acl</code>
+                <strong>Backup ACLs before changes:</strong> <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">getfacl -R /path &gt; backup.acl</code>
               </div>
               <div>
                 Prefer groups over individual users for scalable management
@@ -170,14 +170,14 @@ export default function PostLinuxACL() {
             
             <div className="space-y-4 text-muted-foreground">
               <div><strong>Filesystem Support:</strong> Confirm ACLs are enabled; remount if necessary.</div>
-              <div><strong>Effective Permissions:</strong> Use <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">getfacl -e</code> to check what actually applies.</div>
-              <div><strong>Default ACLs:</strong> Only affect new files—verify with <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">getfacl -d</code>.</div>
+              <div><strong>Effective Permissions:</strong> Use <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">getfacl -e</code> to check what actually applies.</div>
+              <div><strong>Default ACLs:</strong> Only affect new files—verify with <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">getfacl -d</code>.</div>
               <div><strong>Application Behavior:</strong> Some apps ignore ACLs depending on umask—always test.</div>
-              <div><strong>Recursive Operations:</strong> Audit with <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">getfacl -R /path</code> to ensure full coverage.</div>
-              <div><strong>Conflicts:</strong> Remove redundant entries with <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -x</code>.</div>
+              <div><strong>Recursive Operations:</strong> Audit with <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">getfacl -R /path</code> to ensure full coverage.</div>
+              <div><strong>Conflicts:</strong> Remove redundant entries with <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">setfacl -x</code>.</div>
               <div><strong>NFS Limitations:</strong> ACLs must be supported on both server and client.</div>
-              <div><strong>Backup & Restore:</strong> Test your backup ACLs with <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl --restore</code>.</div>
-              <div><strong>Audit & Logging:</strong> Track changes with <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">auditctl -w /path/to/dir -p rwa</code>.</div>
+              <div><strong>Backup & Restore:</strong> Test your backup ACLs with <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">setfacl --restore</code>.</div>
+              <div><strong>Audit & Logging:</strong> Track changes with <code className="bg-muted px-2 py-1 rounded font-mono text-sm text-foreground border border-border">auditctl -w /path/to/dir -p rwa</code>.</div>
               <div><strong>Common Pitfalls:</strong> Mixing chmod and ACLs, missing default ACLs, or granting unnecessary access.</div>
             </div>
           </div>
@@ -185,28 +185,28 @@ export default function PostLinuxACL() {
           <div>
             <h2 className="text-2xl font-bold mb-4">Key Takeaways</h2>
             <div className="space-y-4">
-              <div className="border-l-4 border-blue-500 pl-4">
-                <p className="text-muted-foreground leading-relaxed">
+              <div className="border-l-4 border-primary pl-4">
+                <p className="text-foreground leading-relaxed">
                   Start small and expand gradually.
                 </p>
               </div>
-              <div className="border-l-4 border-green-500 pl-4">
-                <p className="text-muted-foreground leading-relaxed">
+              <div className="border-l-4 border-primary pl-4">
+                <p className="text-foreground leading-relaxed">
                   Default ACLs prevent unexpected gaps in permissions.
                 </p>
               </div>
-              <div className="border-l-4 border-yellow-500 pl-4">
-                <p className="text-muted-foreground leading-relaxed">
+              <div className="border-l-4 border-primary pl-4">
+                <p className="text-foreground leading-relaxed">
                   Test ACLs with the actual applications using the files.
                 </p>
               </div>
-              <div className="border-l-4 border-purple-500 pl-4">
-                <p className="text-muted-foreground leading-relaxed">
+              <div className="border-l-4 border-primary pl-4">
+                <p className="text-foreground leading-relaxed">
                   Document every change—it saves headaches later.
                 </p>
               </div>
-              <div className="border-l-4 border-red-500 pl-4">
-                <p className="text-muted-foreground leading-relaxed">
+              <div className="border-l-4 border-primary pl-4">
+                <p className="text-foreground leading-relaxed">
                   Groups &gt; individual users for maintainable setups.
                 </p>
               </div>
