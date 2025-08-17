@@ -173,7 +173,7 @@ export function About() {
             <div className="relative animate-scale-in">
               <div className="relative">
                 <img
-                  src="/lovable-uploads/25e58ea7-4019-41eb-9961-8c87a4e5a3b6.png"
+                  src="/lovable-uploads/170f5004-9944-4459-b193-b8cca34127e6.png"
                   alt="Ionuț Stănculea - Cloud & Operations Engineer"
                   className="w-80 h-80 lg:w-96 lg:h-96 object-cover object-center rounded-full shadow-tech animate-float"
                 />
