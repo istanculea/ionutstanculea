@@ -48,13 +48,13 @@ export function About() {
                 environments and platform reliability that keeps teams productive and users happy.
               </p>
               
-              <p className="text-lg leading-relaxed text-muted-foreground">
+              <p className="text-lg leading-relaxed text-foreground">
                 My approach combines deep technical expertise with genuine care for the people 
                 using these systems. Whether it's reducing incidents by 25% or solving complex 
                 infrastructure puzzles, I believe the best solutions are both robust and elegant.
               </p>
 
-              <p className="text-lg leading-relaxed text-muted-foreground flex items-center gap-2">
+              <p className="text-lg leading-relaxed text-foreground flex items-center gap-2">
                 <Heart className="h-5 w-5 text-primary" />
                 When I'm not optimizing cloud infrastructure, you'll find me tinkering with smart 
                 home gadgets, 3D printing fun prototypes, or exploring the latest cloud technologies.
