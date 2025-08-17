@@ -64,9 +64,9 @@ export default function PostDeploymentMonitoring() {
           />
         </div>
 
-        <div className="prose prose-lg max-w-none">
-          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 my-6">
-            <p className="text-blue-700 italic">
+        <div className="prose prose-lg max-w-none prose-stone dark:prose-invert">
+          <div className="bg-primary/10 border-l-4 border-primary p-4 my-6 rounded-r-lg">
+            <p className="text-primary dark:text-primary italic font-medium">
               "In DevOps, deployment isn't the finish line; resilience and observability are."
             </p>
           </div>
@@ -110,8 +110,8 @@ export default function PostDeploymentMonitoring() {
             <li><strong>Cloud-Native Monitoring:</strong> CloudWatch, Azure Monitor, or GCP Stackdriver provide telemetry for cloud infrastructure components. Combining these with Prometheus/Grafana gives full-stack insights across services.</li>
           </ul>
           
-          <div className="bg-gray-50 border-l-4 border-gray-400 p-4 my-6">
-            <p className="text-gray-700 italic">
+          <div className="bg-secondary border-l-4 border-muted-foreground p-4 my-6 rounded-r-lg">
+            <p className="text-muted-foreground italic font-medium">
               "Metrics without context are noise. Observability transforms numbers into actionable insights."
             </p>
           </div>
@@ -153,9 +153,9 @@ export default function PostDeploymentMonitoring() {
             <li><strong>Opsgenie/PagerDuty:</strong> Escalate high-priority alerts to on-call engineers if unresolved within a set time.</li>
           </ul>
           
-          <div className="bg-gray-100 p-4 rounded-lg my-4">
-            <p className="font-semibold mb-2">Example workflow:</p>
-            <p>Prometheus detects high error rate → alert posted to Slack → Opsgenie escalates to on-call if unresolved → engineer follows runbook to resolve.</p>
+          <div className="bg-muted p-4 rounded-lg my-4 border border-border">
+            <p className="font-semibold mb-2 text-foreground">Example workflow:</p>
+            <p className="text-muted-foreground">Prometheus detects high error rate → alert posted to Slack → Opsgenie escalates to on-call if unresolved → engineer follows runbook to resolve.</p>
           </div>
 
           <h3>3. Runbooks</h3>
