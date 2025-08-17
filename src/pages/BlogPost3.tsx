@@ -1,3 +1,4 @@
+
 import { ArrowLeft, Calendar, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useNavigate } from "react-router-dom"
@@ -52,9 +53,10 @@ export default function PostServerlessRecaptcha() {
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/blog/serverless.webp"
+            src="/lovable-uploads/c561fe0a-dba4-46c4-bc12-60f7d1ae6f5b.png"
             alt="AWS Serverless Architecture with Lambda and reCAPTCHA"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 1024px"
             loading="lazy"
             decoding="async"
             onError={(e) => {

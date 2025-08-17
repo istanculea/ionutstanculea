@@ -35,7 +35,7 @@ export function Blog() {
       date: "August 15, 2025",
       readTime: "12 min read",
       category: "Cloud Infrastructure",
-      image: "/blog/serverless.webp",
+      image: "/lovable-uploads/c561fe0a-dba4-46c4-bc12-60f7d1ae6f5b.png",
       slug: "/blog/serverless-website-recaptcha"
     },
     {
