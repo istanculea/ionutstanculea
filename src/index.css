@@ -240,6 +240,27 @@
                 var(--gradient-primary) border-box;
     border: 2px solid transparent;
   }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  .hover-shine {
+    @apply relative overflow-hidden;
+  }
+
+  .hover-shine::before {
+    content: '';
+    @apply absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent transform skew-x-12 transition-all duration-700;
+  }
+
+  .hover-shine:hover::before {
+    @apply left-full;
+  }
+
+  .dark .glass-card {
+    @apply bg-black/20 border-white/5;
+  }
 }
 
 @keyframes fadeUp {
