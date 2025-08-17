@@ -51,7 +51,7 @@ export default function PostLinuxACL() {
         
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/blog/linux-acl.jpg"
+            src="/blog/linux-acl-new.jpg"
             alt="Linux ACL Management"
             className="w-full h-full object-cover"
             loading="lazy"

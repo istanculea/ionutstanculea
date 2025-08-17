@@ -52,7 +52,7 @@ export default function PostDeploymentMonitoring() {
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/blog/monitoring.jpg"
+            src="/blog/monitoring-new.jpg"
             alt="Monitoring and Error Tracking"
             className="w-full h-full object-cover"
             loading="lazy"
