@@ -83,28 +83,6 @@ export function Skills() {
           ))}
         </div>
 
-        {/* Core Competencies */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-semibold mb-8">Core Competencies</h3>
-          <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <div className="flex flex-col items-center space-y-3">
-              <Settings className="h-8 w-8 text-primary" />
-              <span className="font-medium">Automation</span>
-            </div>
-            <div className="flex flex-col items-center space-y-3">
-              <Shield className="h-8 w-8 text-primary" />
-              <span className="font-medium">Security</span>
-            </div>
-            <div className="flex flex-col items-center space-y-3">
-              <Monitor className="h-8 w-8 text-primary" />
-              <span className="font-medium">Monitoring</span>
-            </div>
-            <div className="flex flex-col items-center space-y-3">
-              <Cloud className="h-8 w-8 text-primary" />
-              <span className="font-medium">Scalability</span>
-            </div>
-          </div>
-        </div>
 
         {/* Additional Skills */}
         <div className="mt-16 grid md:grid-cols-2 gap-8">

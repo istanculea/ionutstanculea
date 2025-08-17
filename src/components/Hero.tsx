@@ -19,13 +19,13 @@ export function Hero() {
                 Ionuț <span className="text-gradient">Stănculea</span>
               </h1>
               <h2 className="text-2xl lg:text-3xl text-muted-foreground font-light">
-                Cloud, Infrastructure & Operations Engineer
+                Cloud & Operations Engineer
               </h2>
             </div>
             
             <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              Specialized in building, managing, and automating scalable infrastructure on Azure and AWS. 
-              7+ years of experience optimizing CI/CD pipelines and driving platform reliability at scale.
+              Cloud & Operations Engineer, with 7+ years of experience across IT Operations, Software Testing, and Support. 
+              Currently focused on hybrid cloud environments in Azure and AWS, with expertise in incident management, automation, and monitoring. Hands-on experience in cloud service administration and ensuring platform reliability. Skilled at streamlining workflows and collaborating across teams to deliver stable, scalable, and high-performing infrastructure.
             </p>
 
             <div className="flex items-center space-x-3 text-sm text-muted-foreground">

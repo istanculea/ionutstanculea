@@ -207,15 +207,6 @@ export function Contact() {
               </p>
             </div>
 
-            <div className="surface-card p-6">
-              <h4 className="font-semibold mb-3">Interests & Hobbies</h4>
-              <div className="flex flex-wrap gap-2">
-                <span className="skill-badge text-xs">Smart Home Automation</span>
-                <span className="skill-badge text-xs">DIY Tech Projects</span>
-                <span className="skill-badge text-xs">3D Printing</span>
-                <span className="skill-badge text-xs">IoT Development</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
