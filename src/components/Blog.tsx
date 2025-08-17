@@ -63,14 +63,12 @@ export function Blog() {
   const featuredPost = blogPosts.find(post => post.featured)
   const otherPosts = blogPosts.filter(post => !post.featured)
 
-  // Framer Motion variants
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: i => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" }
-    })
+  // Simple animation without variants
+  const animationProps = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.6 }
   }
 
   return (
@@ -89,11 +87,7 @@ export function Blog() {
           <motion.article 
             className="surface-card overflow-hidden mb-12 group cursor-pointer rounded-xl shadow-lg transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             onClick={() => navigate(featuredPost.slug)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={0}
-            variants={cardVariants}
+            {...animationProps}
           >
             <div className="relative aspect-[16/7] overflow-hidden">
               <img
@@ -127,11 +121,8 @@ export function Blog() {
             <motion.article 
               key={post.id}
               className="surface-card overflow-hidden group cursor-pointer rounded-lg shadow-md transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={index + 1} // stagger after featured post
-              variants={cardVariants}
+              {...animationProps}
+              transition={{ ...animationProps.transition, delay: (index + 1) * 0.1 }}
               onClick={() => navigate(post.slug)}
             >
               <div className="aspect-video overflow-hidden">
