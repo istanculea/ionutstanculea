@@ -31,9 +31,9 @@ export function Blog() {
     {
       id: 3,
       title: "How to Build a Serverless Website with reCAPTCHA on AWS",
-      excerpt: "A practical guide to deploying a fully serverless website using AWS Lambda, API Gateway, S3, and integrating Google reCAPTCHA for security.",
+      excerpt: "Serverless architectures are game changers for developers who want fast deployment, automatic scaling, and minimal infrastructure overhead.",
       date: "August 15, 2025",
-      readTime: "12 min read",
+      readTime: "13 min read",
       category: "Cloud Infrastructure",
       image: "/lovable-uploads/c561fe0a-dba4-46c4-bc12-60f7d1ae6f5b.png",
       slug: "/blog/serverless-website-recaptcha"
