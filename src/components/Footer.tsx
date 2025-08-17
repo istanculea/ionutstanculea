@@ -26,10 +26,28 @@ export function Footer() {
   ]
 
   const scrollToSection = (href: string) => {
+    if (href === "/blog") {
+      window.location.href = "/blog"
+      return
+    }
+    
     if (href.startsWith('#')) {
+      // Check if we're not on the home page
+      if (window.location.pathname !== '/') {
+        window.location.href = `/${href}`
+        return
+      }
+      
       const element = document.querySelector(href)
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
+        const headerHeight = 80
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+        const offsetPosition = elementPosition - headerHeight
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
       }
     } else {
       window.location.href = href
