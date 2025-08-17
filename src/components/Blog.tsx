@@ -121,14 +121,17 @@ export function Blog() {
         )}
 
         {/* Grid of other posts */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {otherPosts.map((post, index) => (
             <motion.article 
               key={post.id}
-              className="surface-card overflow-hidden group cursor-pointer rounded-lg shadow-md transform transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
+              className="bg-card/95 border border-border overflow-hidden group cursor-pointer rounded-xl shadow-md transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               {...animationProps}
               transition={{ ...animationProps.transition, delay: (index + 1) * 0.1 }}
               onClick={() => navigate(post.slug)}
+              tabIndex={0}
+              role="button"
+              aria-label={`Read article: ${post.title}`}
             >
               <div className="aspect-video overflow-hidden">
                 <img
@@ -143,9 +146,9 @@ export function Blog() {
                 />
               </div>
               
-              <div className="p-4 space-y-3">
-                <div className="flex items-center justify-between text-sm text-muted-foreground">
-                  <span className="cloud-badge">{post.category}</span>
+              <div className="p-6 space-y-4">
+                <div className="flex items-center justify-between text-sm text-muted-foreground/80">
+                  <span className="px-3 py-1 bg-primary/15 text-primary font-medium rounded-full text-xs">{post.category}</span>
                   <div className="flex items-center space-x-3">
                     <span className="flex items-center space-x-1">
                       <Calendar className="h-4 w-4" />
@@ -158,11 +161,11 @@ export function Blog() {
                   </div>
                 </div>
 
-                <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                   {post.title}
                 </h3>
                 
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-foreground/70 leading-relaxed">
                   {post.excerpt}
                 </p>
 

@@ -79,9 +79,9 @@ export function Contact() {
     <section id="contact" className="py-20 px-6 bg-surface">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold">Let's Connect</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold">Let's Connect!</h2>
           <p className="text-xl text-muted-foreground">
-            Open to new opportunities and exciting cloud infrastructure projects
+            Open to new opportunities and exciting cloud infrastructure projects.
           </p>
         </div>
 
@@ -198,15 +198,6 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="surface-card p-6">
-              <h4 className="font-semibold mb-3">Let's collaborate!</h4>
-              <p className="text-muted-foreground leading-relaxed">
-                I'm always interested in challenging cloud infrastructure projects 
-                and DevOps transformations. Whether you need help with Azure migrations, 
-                Kubernetes deployments, or CI/CD optimization, I'd love to discuss how 
-                we can work together.
-              </p>
-            </div>
 
           </div>
         </div>
