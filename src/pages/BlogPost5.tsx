@@ -45,7 +45,7 @@ export default function PostLinuxACL() {
           </h1>
           
           <p className="text-xl text-muted-foreground">
-            Managing permissions in Linux can get complicated, especially when multiple users or services need fine-grained access. Over time, I've developed practical methods to handle ACLs efficiently and securely. In this post, I'll share strategies that I use in both production and personal projects.
+            In this post, I'll share my hands-on approach, lessons learned, and practical tips for ACLs—perfect for sysadmins, DevOps engineers, or anyone managing multi-user Linux environments.
           </p>
         </header>
         
@@ -64,82 +64,86 @@ export default function PostLinuxACL() {
         
         <div className="prose prose-lg max-w-none space-y-8">
           <div>
-            <h2 className="text-2xl font-bold mb-4">Understanding ACLs</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              ACLs provide a way to define permissions beyond the traditional owner/group/world model. They are especially useful in multi-user systems where certain users require specific read/write/execute privileges on files or directories.
+            <h2 className="text-2xl font-bold mb-4">Why ACLs?</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Unix permissions work well for simple setups, but they fall short when:
+            </p>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>• Multiple users require different access levels in a shared directory.</li>
+              <li>• Monitoring or backup services need read-only access.</li>
+              <li>• Teams grow and evolve, making static permissions cumbersome.</li>
+            </ul>
+            <p className="text-muted-foreground leading-relaxed mt-4">
+              ACLs let you grant granular permissions to users and groups, define default permissions for new files, and keep access structured without resorting to repetitive sudo or manual fixes.
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold mb-4">Installing ACL Support</h2>
+            <h2 className="text-2xl font-bold mb-4">Getting Started</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Most modern Linux distributions include ACL support by default, but you may need to install the utilities:
+              Install ACL utilities if they're missing:
             </p>
-            <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
+            <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm mb-4">
               <code># Ubuntu/Debian<br />
               sudo apt install acl<br /><br />
               # RHEL/CentOS/Fedora<br />
               sudo yum install acl</code>
             </div>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Ensure your filesystem supports ACLs:
+            </p>
+            <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
+              <code>mount | grep acl<br />
+              # If not:<br />
+              mount -o remount,acl /dev/sda1</code>
+            </div>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold mb-4">Basic ACL Commands</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              Here are the essential commands I use daily for ACL management:
-            </p>
-            
+            <h2 className="text-2xl font-bold mb-4">Essential Commands</h2>
             <div className="space-y-4">
               <div>
-                <h3 className="text-lg font-semibold mb-2">View Current ACLs</h3>
-                <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
-                  <code>getfacl /path/to/file</code>
-                </div>
+                <strong>View ACLs:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">getfacl /path/to/file</code>
               </div>
-              
               <div>
-                <h3 className="text-lg font-semibold mb-2">Grant User Access</h3>
-                <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
-                  <code>setfacl -m u:username:rwx /path/to/file</code>
-                </div>
+                <strong>Grant user access:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -m u:username:rwx /path/to/file</code>
               </div>
-              
               <div>
-                <h3 className="text-lg font-semibold mb-2">Grant Group Access</h3>
-                <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
-                  <code>setfacl -m g:groupname:rx /path/to/directory</code>
-                </div>
+                <strong>Grant group access:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -m g:groupname:rx /path/to/directory</code>
+              </div>
+              <div>
+                <strong>Remove ACL entry:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -x u:username /path/to/file</code>
+              </div>
+              <div>
+                <strong>Remove all ACLs:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -b /path/to/file</code>
               </div>
             </div>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold mb-4">Practical Examples</h2>
+            <h2 className="text-2xl font-bold mb-4">Real-World Use Cases</h2>
             
             <div className="space-y-6">
               <div>
-                <h3 className="text-lg font-semibold mb-2">Shared Project Directory</h3>
-                <p className="text-muted-foreground leading-relaxed mb-2">
-                  When setting up a shared project directory for a development team:
-                </p>
+                <h3 className="text-lg font-semibold mb-2">Shared Project Directory:</h3>
                 <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
-                  <code># Create directory and set default ACLs<br />
-                  mkdir /shared/project<br />
-                  setfacl -m d:g:developers:rwx /shared/project<br />
-                  setfacl -m g:developers:rwx /shared/project</code>
+                  <code>mkdir /shared/project<br />
+                  setfacl -m d:g:developers:rwx /shared/project   # Default for new files<br />
+                  setfacl -m g:developers:rwx /shared/project     # Current ACL</code>
                 </div>
               </div>
               
               <div>
-                <h3 className="text-lg font-semibold mb-2">Log File Access</h3>
-                <p className="text-muted-foreground leading-relaxed mb-2">
-                  Giving a monitoring user read access to application logs:
-                </p>
+                <h3 className="text-lg font-semibold mb-2">Log File Access for Monitoring Users:</h3>
                 <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
                   <code>setfacl -R -m u:monitor:r /var/log/myapp/</code>
                 </div>
               </div>
             </div>
+            
+            <p className="text-muted-foreground leading-relaxed mt-4">
+              These setups prevent accidental overwrites while enabling safe collaboration.
+            </p>
           </div>
 
           <div>
@@ -147,80 +151,71 @@ export default function PostLinuxACL() {
             
             <div className="space-y-4">
               <div>
-                <h3 className="text-lg font-semibold mb-2">Recursive Operations</h3>
-                <p className="text-muted-foreground leading-relaxed mb-2">
-                  Apply ACLs to all existing files and subdirectories:
-                </p>
-                <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
-                  <code>setfacl -R -m u:username:rwx /path/to/directory/</code>
-                </div>
+                <strong>Recursive ACLs:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -R -m u:username:rwx /path/to/directory/</code>
               </div>
-              
               <div>
-                <h3 className="text-lg font-semibold mb-2">Default ACLs</h3>
-                <p className="text-muted-foreground leading-relaxed mb-2">
-                  Set default ACLs for new files created in a directory:
-                </p>
-                <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
-                  <code>setfacl -m d:u:username:rwx /path/to/directory/</code>
-                </div>
+                <strong>Default ACLs:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -m d:u:username:rwx /path/to/directory/</code>
               </div>
-              
               <div>
-                <h3 className="text-lg font-semibold mb-2">Removing ACLs</h3>
-                <p className="text-muted-foreground leading-relaxed mb-2">
-                  Remove specific ACL entries or all ACLs:
-                </p>
-                <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm">
-                  <code># Remove specific user ACL<br />
-                  setfacl -x u:username /path/to/file<br /><br />
-                  # Remove all ACLs<br />
-                  setfacl -b /path/to/file</code>
-                </div>
+                <strong>Backup ACLs before changes:</strong> <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">getfacl -R /path &gt; backup.acl</code>
+              </div>
+              <div>
+                Prefer groups over individual users for scalable management
               </div>
             </div>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold mb-4">Best Practices</h2>
+            <h2 className="text-2xl font-bold mb-4">Troubleshooting ACLs</h2>
+            
+            <div className="space-y-4 text-muted-foreground">
+              <div><strong>Filesystem Support:</strong> Confirm ACLs are enabled; remount if necessary.</div>
+              <div><strong>Effective Permissions:</strong> Use <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">getfacl -e</code> to check what actually applies.</div>
+              <div><strong>Default ACLs:</strong> Only affect new files—verify with <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">getfacl -d</code>.</div>
+              <div><strong>Application Behavior:</strong> Some apps ignore ACLs depending on umask—always test.</div>
+              <div><strong>Recursive Operations:</strong> Audit with <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">getfacl -R /path</code> to ensure full coverage.</div>
+              <div><strong>Conflicts:</strong> Remove redundant entries with <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl -x</code>.</div>
+              <div><strong>NFS Limitations:</strong> ACLs must be supported on both server and client.</div>
+              <div><strong>Backup & Restore:</strong> Test your backup ACLs with <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">setfacl --restore</code>.</div>
+              <div><strong>Audit & Logging:</strong> Track changes with <code className="bg-gray-100 px-2 py-1 rounded font-mono text-sm">auditctl -w /path/to/dir -p rwa</code>.</div>
+              <div><strong>Common Pitfalls:</strong> Mixing chmod and ACLs, missing default ACLs, or granting unnecessary access.</div>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Key Takeaways</h2>
             <div className="space-y-4">
               <div className="border-l-4 border-blue-500 pl-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  <strong>Always backup ACLs before major changes:</strong> Use <code className="bg-gray-100 px-1 rounded">getfacl -R /path &gt; backup.acl</code> to save current permissions.
+                  Start small and expand gradually.
                 </p>
               </div>
               <div className="border-l-4 border-green-500 pl-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  <strong>Use groups instead of individual users:</strong> This makes management much easier as teams grow and change.
+                  Default ACLs prevent unexpected gaps in permissions.
                 </p>
               </div>
               <div className="border-l-4 border-yellow-500 pl-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  <strong>Document your ACL strategy:</strong> Keep notes about why certain permissions were granted, especially in production systems.
+                  Test ACLs with the actual applications using the files.
+                </p>
+              </div>
+              <div className="border-l-4 border-purple-500 pl-4">
+                <p className="text-muted-foreground leading-relaxed">
+                  Document every change—it saves headaches later.
+                </p>
+              </div>
+              <div className="border-l-4 border-red-500 pl-4">
+                <p className="text-muted-foreground leading-relaxed">
+                  Groups &gt; individual users for maintainable setups.
                 </p>
               </div>
             </div>
           </div>
 
-          <div>
-            <h2 className="text-2xl font-bold mb-4">Troubleshooting Common Issues</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              When ACLs don't work as expected, check the filesystem mount options. ACLs must be enabled:
-            </p>
-            <div className="bg-gray-100 p-4 rounded-lg font-mono text-sm mb-4">
-              <code># Check if ACLs are enabled<br />
-              mount | grep acl<br /><br />
-              # Enable ACLs on filesystem<br />
-              mount -o remount,acl /dev/sda1</code>
-            </div>
-            <p className="text-muted-foreground leading-relaxed">
-              Also remember that some applications may not respect ACLs if they create files with specific umask settings. Always test your ACL configuration with the actual applications that will be using the files.
-            </p>
-          </div>
-
           <div className="border-t pt-8 mt-12">
             <p className="text-muted-foreground leading-relaxed">
-              ACLs are a powerful tool for fine-grained permission management in Linux. While they add complexity, they're essential for environments where traditional Unix permissions aren't sufficient. Start with simple use cases and gradually incorporate more advanced features as your needs grow.
+              ACLs transform multi-user Linux systems from fragile and error-prone into structured, secure, and reliable environments. With thoughtful planning, proper testing, and documentation, ACLs pay dividends in operational efficiency and peace of mind.
             </p>
           </div>
         </div>
