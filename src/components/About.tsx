@@ -1,61 +1,16 @@
-import { useEffect, useState } from "react"
-import { Award, Cloud, Users, TrendingUp, MapPin, Heart } from "lucide-react"
+import { Zap, Cloud, Wrench, Users, Activity, CheckCircle, MapPin, Heart, Award } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 // Using the new uploaded portrait image
 
 export function About() {
-  const [counters, setCounters] = useState({
-    experience: 0,
-    users: 0,
-    incidents: 0,
-    issues: 0
-  })
-
-  const finalValues = {
-    experience: 7,
-    users: 5000,
-    incidents: 25,
-    issues: 1000
-  }
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Animate counters
-            Object.keys(finalValues).forEach((key) => {
-              const finalValue = finalValues[key as keyof typeof finalValues]
-              let current = 0
-              const increment = finalValue / 60 // 60 frames for 1 second animation
-              
-              const timer = setInterval(() => {
-                current += increment
-                if (current >= finalValue) {
-                  current = finalValue
-                  clearInterval(timer)
-                }
-                setCounters(prev => ({ ...prev, [key]: Math.floor(current) }))
-              }, 16) // ~60fps
-            })
-          }
-        })
-      },
-      { threshold: 0.3 }
-    )
-
-    const aboutSection = document.getElementById('about')
-    if (aboutSection) observer.observe(aboutSection)
-
-    return () => observer.disconnect()
-  }, [])
-
-  const highlights = [
-    { icon: Award, label: "Years Experience", value: counters.experience, suffix: "+" },
-    { icon: Users, label: "Global Users Supported", value: counters.users, suffix: "+" },
-    { icon: TrendingUp, label: "Incident Reduction", value: counters.incidents, suffix: "%" },
-    { icon: Cloud, label: "Issues Resolved", value: counters.issues, suffix: "+" }
+  const chipHighlights = [
+    { icon: Zap, text: "7+ years in IT Operations, QA, and Cloud Engineering" },
+    { icon: Cloud, text: "AWS, Azure, CI/CD, Terraform, Docker, Kubernetes" },
+    { icon: Wrench, text: "Incident management, automation, platform reliability" },
+    { icon: Users, text: "Agile/Scrum, cross‑functional collaboration" },
+    { icon: Activity, text: "Monitoring, observability, performance in hybrid clouds" },
+    { icon: CheckCircle, text: "QA automation and DevOps best practices" }
   ]
 
   const skills = [
@@ -73,7 +28,7 @@ export function About() {
         {/* Section Header */}
         <div className="text-center space-y-4 mb-16 animate-fade-up">
           <h2 className="text-4xl lg:text-5xl font-bold">
-            <span className="text-gradient">About Me</span>
+            <span className="text-gradient">About</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Cloud & Operations Engineer building reliable infrastructure with care and precision
@@ -108,23 +63,17 @@ export function About() {
 
             {/* Key Highlights */}
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">Key Highlights</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {highlights.map((highlight, index) => {
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                {chipHighlights.map((highlight, index) => {
                   const IconComponent = highlight.icon
                   return (
                     <div 
-                      key={highlight.label}
-                      className="surface-card p-4 text-center hover:scale-105 transition-transform duration-200"
-                      style={{ animationDelay: `${index * 100}ms` }}
+                      key={index}
+                      className="surface-card flex items-center gap-3 p-3 rounded-lg hover:scale-[1.02] transition-transform duration-200"
+                      style={{ animationDelay: `${index * 50}ms` }}
                     >
-                      <IconComponent className="h-6 w-6 text-primary mx-auto mb-2" />
-                      <div className="text-2xl font-bold text-primary">
-                        {highlight.value}{highlight.suffix}
-                      </div>
-                      <div className="text-sm text-muted-foreground mt-1">
-                        {highlight.label}
-                      </div>
+                      <IconComponent className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                      <span className="text-sm leading-relaxed">{highlight.text}</span>
                     </div>
                   )
                 })}

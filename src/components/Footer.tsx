@@ -59,7 +59,7 @@ export function Footer() {
     <footer className="py-16 px-6 border-t border-border bg-muted/20">
       <div className="container max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* About Me */}
+          {/* About */}
           <div className="space-y-4">
             <div className="text-2xl font-bold text-gradient">Ionuț Stănculea</div>
             <p className="text-muted-foreground text-sm leading-relaxed">
