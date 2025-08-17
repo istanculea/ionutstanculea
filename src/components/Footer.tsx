@@ -10,6 +10,7 @@ export function Footer() {
     { name: "Skills", href: "#skills" },
     { name: "Education", href: "#education" },
     { name: "Blog", href: "/blog" },
+    { name: "Contact Me", href: "#contact" },
   ]
 
   const socialLinks = [

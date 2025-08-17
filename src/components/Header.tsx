@@ -14,7 +14,8 @@ export function Header() {
     { href: "#experience", label: "Experience" },
     { href: "#skills", label: "Skills" },
     { href: "#education", label: "Education" },
-    { href: "#blog", label: "Blog" }
+    { href: "#blog", label: "Blog" },
+    { href: "#contact", label: "Contact Me" }
   ]
 
   const scrollToSection = (href: string) => {
