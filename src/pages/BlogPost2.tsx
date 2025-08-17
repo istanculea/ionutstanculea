@@ -52,7 +52,7 @@ export default function PostDatabaseMongoDB() {
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/lovable-uploads/63e2620a-0d4a-482f-82b4-7df585ec4907.png"
+            src="/lovable-uploads/aa9dab4a-1c28-4a0e-a6b6-3715a9725d8d.png"
             alt="MongoDB setup article illustration"
             className="w-full h-full object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 1024px"

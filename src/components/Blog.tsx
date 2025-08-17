@@ -25,7 +25,7 @@ export function Blog() {
       date: "August 16, 2025",
       readTime: "7 min read",
       category: "Database",
-      image: "/lovable-uploads/63e2620a-0d4a-482f-82b4-7df585ec4907.png",
+      image: "/lovable-uploads/aa9dab4a-1c28-4a0e-a6b6-3715a9725d8d.png",
       slug: "/blog/mongodb-setup"
     },
     {
