@@ -52,9 +52,10 @@ export default function PostOpenVPN() {
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/blog/openvpn.webp"
-            alt="OpenVPN Secure Network Setup and Configuration"
-            className="w-full h-full object-cover"
+            src="/lovable-uploads/170f5004-9944-4459-b193-b8cca34127e6.png"
+            alt="VPN shield over world map illustration for OpenVPN article"
+            className="w-full h-full object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 1024px"
             loading="lazy"
             decoding="async"
             onError={(e) => {

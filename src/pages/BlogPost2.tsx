@@ -52,9 +52,10 @@ export default function PostDatabaseMongoDB() {
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/blog/mongodb.webp"
-            alt="MongoDB Database Setup and Configuration"
-            className="w-full h-full object-cover"
+            src="/lovable-uploads/63e2620a-0d4a-482f-82b4-7df585ec4907.png"
+            alt="MongoDB setup article illustration"
+            className="w-full h-full object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 1024px"
             loading="lazy"
             decoding="async"
             onError={(e) => {

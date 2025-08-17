@@ -52,9 +52,10 @@ export default function PostDeploymentMonitoring() {
 
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="/blog/monitoring.webp"
-            alt="Monitoring and Error Tracking Dashboard"
-            className="w-full h-full object-cover"
+            src="/lovable-uploads/25e58ea7-4019-41eb-9961-8c87a4e5a3b6.png"
+            alt="Post-deployment monitoring dashboards illustration"
+            className="w-full h-full object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 1024px"
             loading="lazy"
             decoding="async"
             onError={(e) => {

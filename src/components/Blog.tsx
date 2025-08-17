@@ -14,7 +14,7 @@ export function Blog() {
       date: "August 17, 2025",
       readTime: "9 min read",
       category: "DevOps",
-      image: "/blog/monitoring.webp",
+      image: "/lovable-uploads/25e58ea7-4019-41eb-9961-8c87a4e5a3b6.png",
       slug: "/blog/post-deployment-monitoring",
       featured: true
     },
@@ -25,7 +25,7 @@ export function Blog() {
       date: "August 16, 2025",
       readTime: "7 min read",
       category: "Database",
-      image: "/blog/mongodb.webp",
+      image: "/lovable-uploads/63e2620a-0d4a-482f-82b4-7df585ec4907.png",
       slug: "/blog/mongodb-setup"
     },
     {
@@ -45,7 +45,7 @@ export function Blog() {
       date: "August 16, 2025",
       readTime: "8 min read",
       category: "Networking",
-      image: "/blog/openvpn.webp",
+      image: "/lovable-uploads/170f5004-9944-4459-b193-b8cca34127e6.png",
       slug: "/blog/openvpn-server-setup"
     },
     {
