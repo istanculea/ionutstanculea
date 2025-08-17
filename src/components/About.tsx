@@ -28,7 +28,7 @@ export function About() {
         {/* Section Header */}
         <div className="text-center space-y-4 mb-16 animate-fade-up">
           <h2 className="text-4xl lg:text-5xl font-bold">
-            <span className="text-gradient">About</span>
+            <span className="text-gradient">Profile</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Cloud & Operations Engineer building reliable infrastructure with care and precision
