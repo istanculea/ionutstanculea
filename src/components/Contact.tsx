@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { Mail, MapPin, Phone, Github, Linkedin, Twitter, Send } from "lucide-react"
+import { Mail, MapPin, Github, Linkedin, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -54,12 +54,6 @@ export function Contact() {
       href: "mailto:stanculea.ionut.93@gmail.com"
     },
     {
-      icon: <Phone className="h-5 w-5" />,
-      label: "Phone", 
-      value: "(+40) 775 547 311",
-      href: "tel:+40775547311"
-    },
-    {
       icon: <MapPin className="h-5 w-5" />,
       label: "Location",
       value: "Bucharest, Romania",
@@ -69,19 +63,14 @@ export function Contact() {
 
   const socialLinks = [
     {
-      icon: <Github className="h-5 w-5" />,
-      label: "GitHub",
-      href: "https://github.com/ionut-stanculea"
-    },
-    {
       icon: <Linkedin className="h-5 w-5" />,
       label: "LinkedIn", 
       href: "https://linkedin.com/in/ionut-stanculea"
     },
     {
-      icon: <Twitter className="h-5 w-5" />,
-      label: "Twitter",
-      href: "https://twitter.com/ionut_stanculea"
+      icon: <Github className="h-5 w-5" />,
+      label: "GitHub",
+      href: "https://github.com/ionut-stanculea"
     }
   ]
 

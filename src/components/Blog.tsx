@@ -14,7 +14,7 @@ export function Blog() {
       date: "August 17, 2025",
       readTime: "9 min read",
       category: "DevOps",
-      image: "https://images.unsplash.com/photo-1591696331114-ef848d2c0a58?w=800&h=400&fit=crop&crop=entropy&auto=format",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop&crop=entropy&auto=format",
       slug: "/blog/post-deployment-monitoring",
       featured: true
     },
@@ -25,7 +25,7 @@ export function Blog() {
       date: "August 16, 2025",
       readTime: "7 min read",
       category: "Database",
-      image: "https://images.unsplash.com/photo-1581090700227-6a04a4b1789f?w=600&h=400&fit=crop&crop=entropy&auto=format",
+      image: "https://images.unsplash.com/photo-1518523620597-b2cd7b6d95ce?w=600&h=400&fit=crop&crop=entropy&auto=format",
       slug: "/blog/mongodb-setup"
     },
     {
@@ -35,7 +35,7 @@ export function Blog() {
       date: "August 15, 2025",
       readTime: "12 min read",
       category: "Cloud Infrastructure",
-      image: "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=600&h=400&fit=crop&crop=entropy&auto=format",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&crop=entropy&auto=format",
       slug: "/blog/serverless-website-recaptcha"
     },
     {
@@ -45,7 +45,7 @@ export function Blog() {
       date: "August 16, 2025",
       readTime: "8 min read",
       category: "Networking",
-      image: "https://images.unsplash.com/photo-1558898410-773aee6e22b0?w=600&h=400&fit=crop&crop=entropy&auto=format",
+      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=400&fit=crop&crop=entropy&auto=format",
       slug: "/blog/openvpn-server-setup"
     },
     {
@@ -55,7 +55,7 @@ export function Blog() {
       date: "August 17, 2025",
       readTime: "6 min read",
       category: "Linux",
-      image: "https://images.unsplash.com/photo-1612831455548-769c57c35c90?w=600&h=400&fit=crop&crop=entropy&auto=format",
+      image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&h=400&fit=crop&crop=entropy&auto=format",
       slug: "/blog/linux-acl-management"
     }
   ]
