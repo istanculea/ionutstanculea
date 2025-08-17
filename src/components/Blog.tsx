@@ -184,7 +184,10 @@ export function Blog() {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <Button className="btn-outline">
+          <Button 
+            className="btn-outline"
+            onClick={() => navigate('/blog')}
+          >
             View All Articles
           </Button>
         </div>
