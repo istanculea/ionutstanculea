@@ -1,11 +1,9 @@
 import { ArrowLeft, Calendar, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useNavigate } from "react-router-dom"
 
 export default function PostLinuxACL() {
-  const handleNavigation = (path) => {
-    // In a real app, this would use your routing solution
-    console.log(`Navigate to: ${path}`)
-  }
+  const navigate = useNavigate()
 
   return (
     <div className="min-h-screen bg-background">
@@ -13,7 +11,7 @@ export default function PostLinuxACL() {
         <div className="mb-8 flex space-x-4">
           <Button 
             variant="ghost" 
-            onClick={() => handleNavigation('/')}
+            onClick={() => navigate('/')}
             className="group"
           >
             <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
@@ -21,7 +19,7 @@ export default function PostLinuxACL() {
           </Button>
           <Button 
             variant="ghost" 
-            onClick={() => handleNavigation('/blog')}
+            onClick={() => navigate('/blog')}
             className="group"
           >
             <ArrowLeft className="mr-2 h-4 w-4 rotate-180 transition-transform group-hover:translate-x-1" />
@@ -53,9 +51,13 @@ export default function PostLinuxACL() {
         
         <div className="aspect-video mb-12 overflow-hidden rounded-lg">
           <img
-            src="https://images.unsplash.com/photo-1581091012184-742e8f3e7bda?w=800&h=500&fit=crop&crop=entropy&auto=format"
+            src="/blog/linux-acl.jpg"
             alt="Linux ACL Management"
             className="w-full h-full object-cover"
+            loading="lazy"
+            onError={(e) => {
+              e.currentTarget.src = '/placeholder.svg';
+            }}
           />
         </div>
         
