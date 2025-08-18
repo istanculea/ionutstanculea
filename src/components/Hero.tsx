@@ -1,8 +1,11 @@
 import { ArrowDown, Download, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useTranslation } from "react-i18next"
 import portraitImg from "/lovable-uploads/63e2620a-0d4a-482f-82b4-7df585ec4907.png"
 
 export function Hero() {
+  const { t } = useTranslation()
+  
   return (
     <section id="home" className="min-h-screen surface-hero flex items-center justify-center px-6 py-12">
       <div className="container max-w-6xl mx-auto">
@@ -11,34 +14,33 @@ export function Hero() {
           <div className="space-y-8 animate-fade-up">
             <div className="space-y-4">
               <div className="flex items-center space-x-2 text-sm">
-                <span className="cloud-badge">Azure Certified</span>
-                <span className="cloud-badge">7+ Years</span>
+                <span className="cloud-badge">{t('hero.badge1')}</span>
+                <span className="cloud-badge">{t('hero.badge2')}</span>
               </div>
               <p className="text-lg text-muted-foreground font-medium">Hello, I'm</p>
               <h1 className="text-5xl lg:text-7xl font-bold tracking-tight">
-                Ionuț <span className="text-gradient">Stănculea</span>
+                {t('hero.name')}
               </h1>
               <h2 className="text-2xl lg:text-3xl text-muted-foreground font-light">
-                Cloud & Operations Engineer
+                {t('hero.title')}
               </h2>
             </div>
             
             <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              Cloud & Operations Engineer, with 7+ years of experience across IT Operations, Software Testing, and Support. 
-              Currently focused on hybrid cloud environments in Azure and AWS, with expertise in incident management, automation, and monitoring. Hands-on experience in cloud service administration and ensuring platform reliability. Skilled at streamlining workflows and collaborating across teams to deliver stable, scalable, and high-performing infrastructure.
+              {t('hero.description')}
             </p>
 
             <div className="flex items-center space-x-3 text-sm text-muted-foreground">
               <span className="flex items-center space-x-1">
                 <span>📍</span>
-                <span>Remote / Europe</span>
+                <span>{t('hero.location')}</span>
               </span>
               <a 
                 href="mailto:stanculea.ionut.93@gmail.com"
                 className="flex items-center space-x-1 hover:text-primary transition-colors"
               >
                 <span>✉️</span>
-                <span>stanculea.ionut.93@gmail.com</span>
+                <span>{t('hero.email')}</span>
               </a>
             </div>
 
@@ -53,7 +55,7 @@ export function Hero() {
                 }}
               >
                 <Download className="mr-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
-                Download CV
+                {t('hero.downloadCV')}
               </Button>
             </div>
           </div>

@@ -12,26 +12,29 @@ import {
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
+import { useTranslation } from "react-i18next"
 
 export function Skills() {
+  const { t } = useTranslation()
+  
   const technicalSkills = [
     {
-      category: "Cloud Platforms",
+      category: t('skills.cloud'),
       icon: <Cloud className="h-5 w-5" />,
       skills: ["AWS", "Azure"]
     },
     {
-      category: "CI/CD Tools", 
+      category: t('skills.cicd'), 
       icon: <GitBranch className="h-5 w-5" />,
       skills: ["GitLab CI", "Jenkins"]
     },
     {
-      category: "Containers & Orchestration",
+      category: t('skills.automation'),
       icon: <Container className="h-5 w-5" />,
       skills: ["Docker", "Kubernetes"]
     },
     {
-      category: "Monitoring & Logging",
+      category: t('skills.monitoring'),
       icon: <BarChart3 className="h-5 w-5" />,
       skills: ["Grafana"]
     },
@@ -84,9 +87,9 @@ export function Skills() {
               <Sparkles className="h-4 w-4" />
               <span className="text-sm font-medium">Core Capabilities</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold">Technical Skills</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold">{t('skills.title')}</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Hands-on with cloud, CI/CD, containers, and observability—delivering reliable, scalable systems.
+              {t('skills.subtitle')}
             </p>
           </div>
           
