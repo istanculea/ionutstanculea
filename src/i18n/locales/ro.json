@@ -10,7 +10,7 @@
   "hero": {
     "badge1": "Specialist Cloud",
     "badge2": "Inginer DevOps",
-    "name": "Ionut Zaman",
+    "name": "Ionuț Stănculea",
     "title": "Inginer Cloud & Operațiuni construind infrastructură de încredere cu grijă și precizie",
     "description": "Pasionat de crearea soluțiilor cloud scalabile și sigure care împuternicesc echipele și încântă utilizatorii. În prezent arhitectez medii cloud hibride la Electronic Arts.",
     "location": "Locație",
@@ -156,7 +156,7 @@
     "getInTouch": "Să Lucrăm Împreună",
     "email": "Email",
     "location": "Locație",
-    "copyright": "© {{year}} Ionut Zaman. Toate drepturile rezervate.",
+    "copyright": "© {{year}} Ionuț Stănculea. Toate drepturile rezervate.",
     "buildStatus": "Construit cu ❤️ folosind React, TypeScript & Tailwind CSS"
   },
   "blogPost": {
