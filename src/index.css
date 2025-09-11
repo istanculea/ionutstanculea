@@ -34,6 +34,8 @@
     /* Card & Surface - Subtle gray variations for depth */
     --card: 0 0% 100%;
     --card-foreground: 220 25% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 15%;
     --surface: 220 15% 98%;
 
     /* Brand Colors - Azure Blue palette */
@@ -47,7 +49,11 @@
     --accent-foreground: 220 25% 15%;
     --accent-light: 185 90% 92%;
 
-    /* Semantic Colors - Soft neutral palette */
+    /* Semantic Colors - Light theme foundation */
+    --card: 220 15% 98%;
+    --card-foreground: 220 25% 8%;
+    --popover: 220 15% 98%;
+    --popover-foreground: 220 25% 8%;
     --secondary: 220 15% 95%;
     --secondary-foreground: 220 25% 15%;
     --muted: 220 10% 96%;
@@ -92,6 +98,8 @@
     /* Card & Surface - Layered darkness for depth */
     --card: 220 25% 8%;
     --card-foreground: 220 15% 92%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 220 15% 92%;
     --surface: 220 25% 10%;
 
     /* Brand Colors - Brighter Azure for dark theme */
@@ -237,10 +245,12 @@
 
   .text-gradient-enhanced {
     background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)));
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 8s ease-in-out infinite;
+    will-change: background-position;
   }
 
   .border-gradient {
@@ -255,6 +265,7 @@
     border: 2px solid transparent;
     background-size: 300% 300%;
     animation: gradientBorder 6s ease infinite;
+    will-change: background-position;
   }
 
   .glass-card {
@@ -306,6 +317,25 @@
 
   .floating-element {
     animation: float 6s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  /* Accessibility - Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .text-gradient-enhanced,
+    .border-gradient-animated,
+    .pulse-glow,
+    .floating-element,
+    .animate-float,
+    .animate-pulse {
+      animation: none !important;
+    }
+    
+    .hover-glow:hover,
+    .glass-card-premium:hover {
+      transform: none !important;
+      filter: none !important;
+    }
   }
 
   .dark .glass-card {

@@ -66,7 +66,7 @@ export function About() {
                   return (
                     <div 
                       key={index}
-                      className="surface-card flex items-center gap-3 p-3 rounded-lg hover:scale-[1.02] transition-transform duration-200"
+                      className="glass-card-premium flex items-center gap-3 p-3 rounded-lg"
                       style={{ animationDelay: `${index * 50}ms` }}
                     >
                       <IconComponent className="h-4 w-4 text-muted-foreground flex-shrink-0" />

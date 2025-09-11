@@ -18,7 +18,7 @@ export function Hero() {
                 <span className="cloud-badge">{t('hero.badge2')}</span>
               </div>
               <p className="text-lg text-muted-foreground font-medium">Hello, I'm</p>
-              <h1 className="text-5xl lg:text-7xl font-bold tracking-tight">
+              <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-gradient-enhanced">
                 {t('hero.name')}
               </h1>
               <h2 className="text-2xl lg:text-3xl text-muted-foreground font-light">
@@ -63,13 +63,13 @@ export function Hero() {
           {/* Portrait */}
           <div className="relative animate-scale-in">
             <div className="relative mx-auto lg:mx-0 w-80 h-80 lg:w-96 lg:h-96">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl rotate-6 animate-float"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl rotate-6 floating-element"></div>
               <img
                 src={portraitImg}
                 alt="Ionuț Stănculea - Cloud Infrastructure Engineer"
-                className="relative w-full h-full object-cover rounded-3xl shadow-2xl"
+                className="relative w-full h-full object-cover rounded-3xl shadow-2xl hover-glow"
               />
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-r from-primary to-accent rounded-2xl shadow-glow opacity-80 animate-pulse"></div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-r from-primary to-accent rounded-2xl shadow-glow opacity-80 pulse-glow"></div>
             </div>
           </div>
         </div>
