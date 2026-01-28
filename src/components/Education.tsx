@@ -5,13 +5,13 @@ export function Education() {
   const { t } = useTranslation()
   
   const certifications = [
-    "Microsoft Azure Fundamentals (AZ-900)",
-    "Microsoft Azure Administrator Associate (AZ-104)",
-    "Test Automation Foundations",
-    "Agile Test Automation Training",
-    "Scrum: The Basics",
-    "Agile Requirements Foundations",
-    "Programming Foundations: Software Testing/QA"
+    "Agile Test Automation - Learning Tree International",
+    "API Testing Foundations - LinkedIn",
+    "Scrum: The Basics - LinkedIn",
+    "Scrum: Advanced - LinkedIn",
+    "Agile Requirements Foundations - LinkedIn",
+    "Business Analysis Foundations - LinkedIn",
+    "Programming Foundations: Software Testing/QA - LinkedIn"
   ]
 
   return (
