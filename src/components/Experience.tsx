@@ -13,25 +13,32 @@ export function Experience() {
       achievements: t('experience.ea.achievements', { returnObjects: true })
     },
     {
-      title: t('experience.metro.title'),
-      company: t('experience.metro.company'),
-      location: t('experience.metro.location'),
-      period: t('experience.metro.period'),
-      achievements: t('experience.metro.achievements', { returnObjects: true })
+      title: t('experience.autodesk.title'),
+      company: t('experience.autodesk.company'),
+      location: t('experience.autodesk.location'),
+      period: t('experience.autodesk.period'),
+      achievements: t('experience.autodesk.achievements', { returnObjects: true })
     },
     {
-      title: t('experience.altex.title'),
-      company: t('experience.altex.company'),
-      location: t('experience.altex.location'),
-      period: t('experience.altex.period'),
-      achievements: t('experience.altex.achievements', { returnObjects: true })
+      title: t('experience.altenLead.title'),
+      company: t('experience.altenLead.company'),
+      location: t('experience.altenLead.location'),
+      period: t('experience.altenLead.period'),
+      achievements: t('experience.altenLead.achievements', { returnObjects: true })
     },
     {
-      title: t('experience.brd.title'),
-      company: t('experience.brd.company'),
-      location: t('experience.brd.location'),
-      period: t('experience.brd.period'),
-      achievements: t('experience.brd.achievements', { returnObjects: true })
+      title: t('experience.altenEngineer.title'),
+      company: t('experience.altenEngineer.company'),
+      location: t('experience.altenEngineer.location'),
+      period: t('experience.altenEngineer.period'),
+      achievements: t('experience.altenEngineer.achievements', { returnObjects: true })
+    },
+    {
+      title: t('experience.expleo.title'),
+      company: t('experience.expleo.company'),
+      location: t('experience.expleo.location'),
+      period: t('experience.expleo.period'),
+      achievements: t('experience.expleo.achievements', { returnObjects: true })
     }
   ]
 
