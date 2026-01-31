@@ -1,132 +1,148 @@
 
+# Portfolio UI Improvements Plan
 
-## Summary
-
-Update the Experience, Skills, and Education sections to accurately reflect the information from your uploaded CV. This includes correcting job titles, companies, dates, and achievements, as well as updating the technical skills and certifications to match your actual professional background.
-
----
-
-## Changes Overview
-
-### Current vs. CV Data Comparison
-
-| Section | Current Website | Your CV |
-|---------|-----------------|---------|
-| EA Period | Nov 2022 - Present | Oct 2021 - Present |
-| Second Job | Metro Systems (DevOps) | Autodesk (Senior QA) |
-| Third Job | Altex Romania | ALTEN (Support Lead) |
-| Fourth Job | BRD Bank | ALTEN (Support Engineer) |
-| Missing Jobs | - | Expleo Group, Koyo internship |
-| Experience Years | 7+ years | 5+ years |
-| Certifications | Azure certs + testing | LinkedIn/Training certs only |
+## Overview
+This plan focuses on updating the About section with the new profile photo and enhancing the overall UI aesthetics for a more polished, recruiter-friendly 2025 design.
 
 ---
 
-## Implementation Plan
+## 1. Update Profile Photo
 
-### 1. Update Experience Component and Translations
+**Action:** Replace the current profile image with the newly uploaded photo
 
-**File: `src/components/Experience.tsx`**
-- Update the experiences array to include 6 positions instead of 4:
-  - Cloud Operations Engineer at Electronic Arts
-  - Senior Quality Assurance Analyst at Autodesk
-  - Support Team Lead at ALTEN
-  - Support Engineer at ALTEN  
-  - Mechanical Design Engineer at Expleo Group
-  - Mechanical Technician (Internship) at Koyo
-
-**Files: `src/i18n/locales/en.json`, `ro.json`, `es.json`**
-- Replace the experience section with accurate data from CV:
-  - EA: Oct 2021 - Present (not Nov 2022)
-  - Replace Metro Systems with Autodesk (Nov 2019 - Jan 2021)
-  - Replace Altex with ALTEN Support Team Lead (Mar 2019 - Nov 2019)
-  - Replace BRD with ALTEN Support Engineer (Oct 2016 - Mar 2019)
-  - Add Expleo Group as part-time role (May 2016 - Sep 2019)
-
-### 2. Update Skills Component
-
-**File: `src/components/Skills.tsx`**
-- Update technical skills to match CV:
-  - Cloud Platforms: AWS, Azure
-  - Infrastructure as Code: Terraform
-  - Containers: Kubernetes, Docker
-  - CI/CD: Jenkins, GitHub Actions (basic)
-  - Monitoring: Grafana, Prometheus (basic)
-  - Scripting: Bash, PowerShell, Python
-  - Version Control: Git
-  - Databases: PostgreSQL, MySQL
-  - Other Tools: Jira, Confluence, AutoCAD, CATIA V5, Revit
-
-- Update Languages (remove Italian as it's not in CV):
-  - Romanian - Native
-  - English - C2
-  - Spanish - B1
-
-### 3. Update Education Component
-
-**File: `src/components/Education.tsx`**
-- Update certifications list to match CV:
-  - Agile Test Automation - Learning Tree International
-  - API Testing Foundations - LinkedIn
-  - Scrum (Basics and Advanced) - LinkedIn
-  - Agile Requirements Foundations - LinkedIn
-  - Business Analysis Foundations - LinkedIn
-  - Programming Foundations: QA - LinkedIn
-- Remove Microsoft Azure certifications (AZ-900, AZ-104) as they're not listed in the CV
-
-### 4. Update About/Hero Section
-
-**Files: `src/i18n/locales/en.json`, `ro.json`, `es.json`**
-- Update experience years from "7+ years" to "5+ years"
-- Update professional profile description to match CV summary
+- Copy the uploaded image (`user-uploads://63620cb6-f13d-403e-85aa-9f6169b5a7fb.png`) to `src/assets/profile-photo.png`
+- The About component already imports from this location, so no code change needed for the import
 
 ---
 
-## Technical Details
+## 2. Improve About Section Layout & Photo Positioning
 
-### Files to Modify
+**File:** `src/components/About.tsx`
+
+### Changes:
+- Reorder layout on mobile: Show profile photo **first** (above content) for better recruiter impact
+- Improve photo container with enhanced glassmorphism frame
+- Add subtle decorative elements around the photo
+- Optimize photo dimensions for professional headshot proportions
+- Add a gentle entrance animation to the photo
+
+```text
+Layout Structure:
++------------------------------------------+
+|           [Profile Badge]                |
+|              Profile                     |
+|    Cloud & Operations Engineer           |
++------------------------------------------+
+| [Photo (mobile first)]  OR  [Side-by-side on desktop]
++------------------------------------------+
+|  Content Cards    |    Profile Photo     |
+|  - Bio text       |    (sticky on scroll)|
+|  - Highlights     |    + Glow effect     |
+|  - Skills badges  |    + "Available"     |
+|  - Certifications |                      |
++------------------------------------------+
+```
+
+### Specific Enhancements:
+- Change grid to `flex-col-reverse lg:grid lg:grid-cols-12` so photo appears first on mobile
+- Add a decorative ring/frame around the photo with animated gradient border
+- Increase photo size slightly for more presence
+- Add floating accent shapes behind the photo for depth
+
+---
+
+## 3. Enhance Hero Section
+
+**File:** `src/components/Hero.tsx`
+
+### Changes:
+- Add a small profile avatar/thumbnail in the hero for immediate visual recognition
+- Improve the tech stack badges with hover animations
+- Enhance the CTA buttons with more prominent styling
+- Add subtle particle or floating dot effects for dynamism
+
+---
+
+## 4. Add Enhanced CSS Animations
+
+**File:** `src/index.css`
+
+### New Additions:
+- Add `animate-pulse-glow` keyframes for the photo glow effect
+- Add `animate-float` keyframes (if not already defined properly)
+- Add gradient border animation for photo frame
+- Ensure smooth reveal animations work consistently
+
+---
+
+## 5. Polish Experience & Skills Sections
+
+**Files:** `src/components/Experience.tsx`, `src/components/Skills.tsx`
+
+### Changes:
+- Apply consistent glassmorphism card styling to match About section
+- Add subtle hover glow effects to cards
+- Improve badge styling with the primary color scheme
+- Add smooth hover transitions
+
+---
+
+## Technical Implementation Details
+
+### About.tsx Key Changes:
+```typescript
+// Reorder for mobile-first photo display
+<div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 items-start">
+  {/* Content column */}
+  <div className="lg:col-span-7 ...">
+    {/* ... content ... */}
+  </div>
+  
+  {/* Photo column - now renders first on mobile */}
+  <div className="lg:col-span-5 flex justify-center lg:justify-end order-first lg:order-none">
+    <div className="relative group">
+      {/* Enhanced glow with animated gradient */}
+      <div className="absolute -inset-4 bg-gradient-to-br from-primary/30 via-accent-light/20 to-primary/30 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 animate-pulse" />
+      
+      {/* Decorative ring */}
+      <div className="absolute -inset-2 rounded-3xl border-2 border-gradient-animated" />
+      
+      {/* Photo with improved sizing */}
+      <img
+        src={profilePhoto}
+        alt="Ionuț Stănculea"
+        className="relative w-72 h-80 md:w-80 md:h-96 lg:w-[320px] lg:h-[400px] object-cover object-top rounded-2xl border-2 border-primary/30 shadow-2xl"
+      />
+      
+      {/* Status badge */}
+      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 ...">
+        Available for hire
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## Summary of Files to Modify
 
 | File | Changes |
 |------|---------|
-| `src/components/Experience.tsx` | Add 2 more experience entries (Expleo, structure for 6 jobs) |
-| `src/components/Skills.tsx` | Update skills arrays, remove Italian language, add Terraform, Prometheus |
-| `src/components/Education.tsx` | Replace certifications list with CV data |
-| `src/i18n/locales/en.json` | Full experience data update, about section update |
-| `src/i18n/locales/ro.json` | Romanian translations for all changes |
-| `src/i18n/locales/es.json` | Spanish translations for all changes |
+| `src/assets/profile-photo.png` | Replace with new uploaded photo |
+| `src/components/About.tsx` | Improve layout, mobile ordering, photo styling |
+| `src/components/Hero.tsx` | Add avatar, enhance animations |
+| `src/index.css` | Add new animation keyframes |
+| `src/components/Experience.tsx` | Apply consistent glassmorphism |
+| `src/components/Skills.tsx` | Apply consistent glassmorphism |
 
-### New Experience Structure (English)
+---
 
-```text
-1. Cloud Operations Engineer - Electronic Arts (Oct 2021 - Present)
-2. Senior Quality Assurance Analyst - Autodesk (Nov 2019 - Jan 2021)
-3. Support Team Lead - ALTEN (Mar 2019 - Nov 2019)
-4. Support Engineer - ALTEN (Oct 2016 - Mar 2019)
-5. Mechanical Design Engineer (Part-time) - Expleo Group (May 2016 - Sep 2019)
-```
+## Expected Outcome
 
-### Updated Skills Categories
-
-```text
-- Cloud Platforms: AWS, Azure
-- Infrastructure as Code: Terraform
-- Containers & Orchestration: Kubernetes, Docker
-- CI/CD: Jenkins, GitHub Actions
-- Monitoring & Logging: Grafana, Prometheus
-- Scripting: Bash, PowerShell, Python
-- Version Control: Git
-- Databases: PostgreSQL, MySQL
-- Other Tools: Jira, Confluence, AutoCAD, CATIA V5, Revit
-```
-
-### Updated Certifications
-
-```text
-- Agile Test Automation - Learning Tree International
-- API Testing Foundations - LinkedIn
-- Scrum (Basics and Advanced) - LinkedIn
-- Agile Requirements Foundations - LinkedIn
-- Business Analysis Foundations - LinkedIn
-- Programming Foundations: QA - LinkedIn
-```
-
+- New professional photo prominently displayed
+- Photo appears first on mobile for immediate visual impact
+- Enhanced glassmorphism effects throughout
+- Consistent 2025 modern UI aesthetic
+- Better recruiter-first design with scannable layout
+- Smooth animations and micro-interactions
