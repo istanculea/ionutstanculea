@@ -10,15 +10,18 @@
   "hero": {
     "badge1": "Especialista en Cloud",
     "badge2": "Ingeniero DevOps",
+    "badge": "Ingeniero de Operaciones Cloud",
     "name": "Ionuț Stănculea",
     "title": "Ingeniero Cloud & Operaciones construyendo infraestructura confiable con cuidado y precisión",
     "description": "Apasionado por crear soluciones cloud escalables y seguras que empoderan equipos y deleitan usuarios. Actualmente arquitectando entornos cloud híbridos en Electronic Arts.",
     "location": "Ubicación",
     "email": "Correo",
-    "downloadCV": "Descargar CV"
+    "downloadCV": "Descargar CV",
+    "learnMore": "Conoce Más Sobre Mí"
   },
   "about": {
     "title": "Perfil",
+    "badge": "Sobre Mí",
     "subtitle": "Ingeniero Cloud & Operaciones construyendo infraestructura confiable con cuidado y precisión",
     "paragraph1": "Soy un Ingeniero Cloud & Operaciones apasionado con más de 5 años de experiencia práctica construyendo, gestionando y automatizando infraestructura escalable en Azure y AWS. Actualmente en Electronic Arts, me especializo en entornos cloud híbridos y confiabilidad de plataformas que mantienen a los equipos productivos y a los usuarios felices.",
     "paragraph2": "Mi enfoque combina experiencia técnica profunda con genuino cuidado por las personas que usan estos sistemas. Ya sea reduciendo incidentes en un 25% o resolviendo complejos rompecabezas de infraestructura, creo que las mejores soluciones son tanto robustas como elegantes.",
@@ -153,9 +156,17 @@
       "messageMin": "El mensaje debe tener al menos 10 caracteres"
     },
     "toast": {
-      "success": "¡Mensaje enviado exitosamente! Te responderé pronto.",
-      "error": "Error al enviar mensaje. Por favor intenta de nuevo.",
+      "success": "¡Mensaje enviado exitosamente!",
+      "successDescription": "¡Gracias! Te responderé dentro de 24 horas.",
+      "error": "Error",
+      "errorDescription": "Error al enviar mensaje. Por favor intenta de nuevo o envíame un correo directo.",
       "spam": "Spam detectado. Por favor intenta de nuevo."
+    },
+    "schedule": {
+      "title": "Programar una Reunión",
+      "description": "¿Prefieres una llamada rápida? Programa una reunión de 30 minutos para discutir tu proyecto u oportunidad.",
+      "button": "Programar en Calendly",
+      "buttonAriaLabel": "Programar una reunión en Calendly (se abre en nueva pestaña)"
     }
   },
   "footer": {

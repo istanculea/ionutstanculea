@@ -1,84 +1,106 @@
-import { ArrowDown, Download, ExternalLink } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useTranslation } from "react-i18next"
-import portraitImg from "/lovable-uploads/63e2620a-0d4a-482f-82b4-7df585ec4907.png"
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Cloud, Code, Server, Sparkles } from 'lucide-react';
 
 export function Hero() {
-  const { t } = useTranslation()
-  
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
-    <section id="home" className="min-h-screen surface-hero flex items-center justify-center px-6 py-12">
-      <div className="container max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-8 animate-fade-up">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2 text-sm">
-                <span className="cloud-badge">{t('hero.badge1')}</span>
-                <span className="cloud-badge">{t('hero.badge2')}</span>
-              </div>
-              <p className="text-lg text-muted-foreground font-medium">Hello, I'm</p>
-              <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-gradient-enhanced">
-                {t('hero.name')}
-              </h1>
-              <h2 className="text-2xl lg:text-3xl text-muted-foreground font-light">
-                {t('hero.title')}
-              </h2>
-            </div>
-            
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              {t('hero.description')}
-            </p>
+    <section id="home" className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-primary/5">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent-light/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+      </div>
 
-            <div className="flex items-center space-x-3 text-sm text-muted-foreground">
-              <span className="flex items-center space-x-1">
-                <span>📍</span>
-                <span>{t('hero.location')}</span>
+      {/* Floating tech icons */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Cloud className="absolute top-24 left-[15%] w-8 h-8 text-primary/20 animate-float" />
+        <Server className="absolute bottom-32 right-[20%] w-10 h-10 text-primary/15 animate-float" style={{ animationDelay: '1s' }} />
+        <Code className="absolute top-1/3 right-[15%] w-7 h-7 text-primary/20 animate-float" style={{ animationDelay: '2s' }} />
+        <Sparkles className="absolute bottom-1/4 left-[20%] w-6 h-6 text-primary/15 animate-float" style={{ animationDelay: '1.5s' }} />
+      </div>
+
+      <div className="container relative z-10 px-4 py-20">
+        <div className="max-w-4xl mx-auto text-center space-y-8 hero-entrance">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
+            <Sparkles className="w-4 h-4" />
+            <span>Cloud Infrastructure & DevOps Expert</span>
+          </div>
+
+          {/* Main heading with gradient */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-primary">
+              Ionuț Stănculea
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Building reliable, scalable cloud infrastructure with{' '}
+            <span className="text-primary font-semibold">AWS</span>,{' '}
+            <span className="text-primary font-semibold">Azure</span>, and{' '}
+            <span className="text-primary font-semibold">DevOps</span> best practices
+          </p>
+
+          {/* Key highlights */}
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground pt-4">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span>5+ years of experience</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span>Hybrid Cloud Specialist</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span>Infrastructure as Code</span>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-6">
+            <Button 
+              size="lg" 
+              className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-lg hover:shadow-xl transition-all duration-300 bg-primary hover:bg-primary-dark min-h-[48px]"
+              onClick={() => scrollToSection('contact')}
+            >
+              Get in Touch
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 border-2 hover:bg-primary/5 transition-all duration-300 min-h-[48px]"
+              onClick={() => scrollToSection('experience')}
+            >
+              View Experience
+            </Button>
+          </div>
+
+          {/* Tech stack preview */}
+          <div className="pt-12 flex flex-wrap justify-center gap-4 opacity-60">
+            {['Terraform', 'Kubernetes', 'Docker', 'Jenkins', 'AWS', 'Azure', 'Python', 'CI/CD'].map((tech) => (
+              <span 
+                key={tech}
+                className="px-3 py-1.5 text-xs font-medium bg-card border border-border rounded-md hover:border-primary/50 hover:text-primary transition-colors duration-200"
+              >
+                {tech}
               </span>
-              <a 
-                href="mailto:stanculea.ionut.93@gmail.com"
-                className="flex items-center space-x-1 hover:text-primary transition-colors"
-              >
-                <span>✉️</span>
-                <span>{t('hero.email')}</span>
-              </a>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                className="btn-outline group"
-                onClick={() => {
-                  const link = document.createElement('a')
-                  link.href = '/cv.pdf'
-                  link.download = 'Ionut_Stanculea_CV.pdf'
-                  link.click()
-                }}
-              >
-                <Download className="mr-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
-                {t('hero.downloadCV')}
-              </Button>
-            </div>
+            ))}
           </div>
-
-          {/* Portrait */}
-          <div className="relative animate-scale-in">
-            <div className="relative mx-auto lg:mx-0 w-80 h-80 lg:w-96 lg:h-96">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl rotate-6 floating-element"></div>
-              <img
-                src={portraitImg}
-                alt="Ionuț Stănculea - Cloud Infrastructure Engineer"
-                className="relative w-full h-full object-cover rounded-3xl shadow-2xl hover-glow"
-              />
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-r from-primary to-accent rounded-2xl shadow-glow opacity-80 pulse-glow"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowDown className="h-6 w-6 text-muted-foreground" />
         </div>
       </div>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
-  )
+  );
 }

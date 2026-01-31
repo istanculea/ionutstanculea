@@ -1,3 +1,4 @@
+import { CSSProperties } from "react"
 import { 
   Cloud, 
   GitBranch, 
@@ -8,7 +9,9 @@ import {
   Settings,
   Languages,
   Heart,
-  Sparkles
+  Sparkles,
+  Wrench,
+  ArrowDown
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
@@ -78,44 +81,43 @@ export function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-20 px-6 bg-surface relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
-      
-      <div className="container max-w-6xl mx-auto relative space-y-16">
-        
-        {/* Technical Skills Section */}
-        <div className="space-y-8">
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary">
+    <section id="skills" className="py-24 px-6 bg-surface relative overflow-hidden" data-reveal>
+      <div className="container max-w-6xl mx-auto relative space-y-12">
+        <div className="space-y-6">
+          <div className="text-center space-y-3" data-reveal-item>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface text-primary">
               <Sparkles className="h-4 w-4" />
               <span className="text-sm font-medium">Core Capabilities</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold">{t('skills.title')}</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-3">
+              <Wrench className="h-8 w-8 text-primary" />
+              {t('skills.title')}
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               {t('skills.subtitle')}
             </p>
           </div>
           
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2" data-reveal-item style={{ "--reveal-delay": "100ms" } as CSSProperties}>
             {technicalSkills.map((category, index) => (
               <div 
                 key={category.category}
-                className="glass-card p-6 group hover:scale-[1.02] transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="rounded-xl border border-border bg-card/70 p-6 card-interactive"
+                data-reveal-item
+                style={{ "--reveal-delay": `${index * 80}ms` } as CSSProperties}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-primary/10 rounded-lg text-primary group-hover:bg-primary/20 transition-colors">
+                  <div className="p-2 bg-primary/10 rounded-lg text-primary">
                     {category.icon}
                   </div>
-                  <h3 className="font-semibold text-lg">{category.category}</h3>
+                  <h3 className="font-semibold text-lg text-foreground">{category.category}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
                     <Badge 
                       key={skill} 
                       variant="secondary" 
-                      className="hover-scale"
+                      className="bg-muted text-foreground border-border"
                     >
                       {skill}
                     </Badge>
@@ -126,65 +128,74 @@ export function Skills() {
           </div>
         </div>
 
-        {/* Languages Section */}
-        <div className="space-y-8">
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent">
+        <div className="space-y-6">
+          <div className="text-center space-y-2" data-reveal-item style={{ "--reveal-delay": "120ms" } as CSSProperties}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface text-accent">
               <Languages className="h-4 w-4" />
               <span className="text-sm font-medium">Communication</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold">Languages</h2>
-            <p className="text-muted-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold">Languages</h2>
+            <p className="text-muted-foreground text-lg">
               Fluent, business-ready communication.
             </p>
           </div>
           
-          <div className="glass-card p-8">
+          <div className="rounded-xl border border-border bg-card/70 p-8 card-interactive" data-reveal-item style={{ "--reveal-delay": "200ms" } as CSSProperties}>
             <div className="grid gap-6 sm:grid-cols-2">
-              {languageSkills.map((lang, index) => (
+              {languageSkills.map((lang) => (
                 <div 
                   key={lang.language}
-                  className="space-y-3 animate-fade-in"
-                  style={{ animationDelay: `${index * 150}ms` }}
+                  className="space-y-3"
                 >
                   <div className="flex justify-between items-center">
-                    <span className="font-semibold">{lang.language}</span>
+                    <span className="font-semibold text-foreground">{lang.language}</span>
                     <span className="text-sm text-muted-foreground">{lang.level}</span>
                   </div>
-                  <Progress value={lang.percentage} className="h-2" />
+                  <Progress value={lang.percentage} className="h-2 bg-muted" />
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Interests Section */}
-        <div className="space-y-8">
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 text-red-500">
+        <div className="space-y-6">
+          <div className="text-center space-y-2" data-reveal-item style={{ "--reveal-delay": "240ms" } as CSSProperties}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface text-accent">
               <Heart className="h-4 w-4" />
               <span className="text-sm font-medium">Personal</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold">Interests</h2>
-            <p className="text-muted-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold">Interests</h2>
+            <p className="text-muted-foreground text-lg">
               What drives my curiosity outside of work.
             </p>
           </div>
           
-          <div className="glass-card p-8">
+          <div className="rounded-xl border border-border bg-card/70 p-8 card-interactive" data-reveal-item style={{ "--reveal-delay": "300ms" } as CSSProperties}>
             <div className="flex flex-wrap justify-center gap-3">
-              {interests.map((interest, index) => (
+              {interests.map((interest) => (
                 <Badge 
                   key={interest}
                   variant="outline" 
-                  className="text-base py-2 px-4 hover-scale animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className="text-base py-2 px-4 border-border text-foreground"
                 >
                   {interest}
                 </Badge>
               ))}
             </div>
           </div>
+        </div>
+
+        <div className="flex justify-center" data-reveal-item style={{ "--reveal-delay": "360ms" } as CSSProperties}>
+          <button
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border hover:border-primary/60 transition-colors bg-background/70 min-h-11"
+            onClick={() => {
+              const target = document.getElementById('education')
+              target?.scrollIntoView({ behavior: 'smooth' })
+            }}
+          >
+            {t('nav.education')}
+            <ArrowDown className="h-4 w-4" />
+          </button>
         </div>
 
       </div>

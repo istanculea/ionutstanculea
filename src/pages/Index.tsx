@@ -2,26 +2,30 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Experience } from "@/components/Experience";
-import { Education } from "@/components/Education";
 import { Skills } from "@/components/Skills";
+import { Education } from "@/components/Education";
 import { Blog } from "@/components/Blog";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { ConsentBanner } from "@/components/ConsentBanner";
+import { RevealObserver } from "@/components/RevealObserver";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <RevealObserver />
       <Header />
       <main id="main">
         <Hero />
         <About />
         <Experience />
-        <Education />
         <Skills />
+        <Education />
         <Blog />
         <Contact />
       </main>
       <Footer />
+      <ConsentBanner />
     </div>
   );
 };

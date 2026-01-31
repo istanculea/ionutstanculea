@@ -1,10 +1,13 @@
-import { useState, useEffect, useRef } from "react"
-import { Menu, X, PenLine } from "lucide-react"
+import React, { useState, useEffect, useRef } from "react"
+import { Menu, X, PenLine, Download, User, Briefcase, Wrench, GraduationCap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "./ThemeToggle"
 import { NavLink, useLocation } from "react-router-dom"
+import { LanguageToggle } from "./LanguageToggle"
+import { useTranslation } from "react-i18next"
 
 export function Header() {
+  const { t } = useTranslation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("")
@@ -13,10 +16,10 @@ export function Header() {
   const ctaButtonRef = useRef<HTMLButtonElement>(null)
 
   const navItems = [
-    { href: "#about", label: "About" },
-    { href: "#experience", label: "Experience" },
-    { href: "#skills", label: "Skills" },
-    { href: "#education", label: "Learning" }
+    { href: "#about", label: "About", icon: User },
+    { href: "#experience", label: "Experience", icon: Briefcase },
+    { href: "#skills", label: "Skills", icon: Wrench },
+    { href: "#education", label: "Learning", icon: GraduationCap }
   ]
 
   // Scroll spy for active section
@@ -114,30 +117,45 @@ export function Header() {
   return (
     <header className={`fixed top-0 w-full z-50 header-transition ${
       isScrolled 
-        ? 'bg-background/60 backdrop-blur-xl border-b border-border/40 py-2' 
-        : 'bg-background/95 backdrop-blur-md border-b border-border py-4'
+        ? 'bg-background/80 backdrop-blur-xl border-b border-border/60 py-3 shadow-sm' 
+        : 'bg-background/95 backdrop-blur-md border-b border-border/40 py-4'
     }`}>
-      <nav className="container mx-auto px-6">
+      <nav className="container">
         <div className="flex items-center justify-between">
+          {/* Mobile menu button - Left Side */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
+
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className={`nav-link ${
-                  activeSection === item.href.slice(1) ? 'nav-link--active' : ''
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+          <div className="hidden md:flex items-center space-x-6">
+            {navItems.map((item) => {
+              const Icon = item.icon
+              return (
+                <button
+                  key={item.href}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`text-sm font-medium text-muted-foreground hover:text-foreground transition-colors link-underline flex items-center gap-2 ${
+                    activeSection === item.href.slice(1) ? 'text-foreground underline underline-offset-8' : ''
+                  }`}
+                >
+                  <Icon className="h-4 w-4" />
+                  {item.label}
+                </button>
+              )
+            })}
             
             <NavLink
               to="/blog"
               className={({ isActive }) =>
-                `nav-link flex items-center gap-2 ${
-                  isActive ? 'nav-link--active' : ''
+                `text-sm font-medium flex items-center gap-2 transition-colors link-underline ${
+                  isActive ? 'text-foreground underline underline-offset-8' : 'text-muted-foreground hover:text-foreground'
                 }`
               }
             >
@@ -147,7 +165,18 @@ export function Header() {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-3">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => window.open('/cv.pdf', '_blank')}
+              className="inline-flex h-10 text-xs md:text-sm"
+              aria-label={t('hero.downloadCV')}
+            >
+              <Download className="h-4 w-4 md:mr-2" />
+              <span className="hidden sm:inline">{t('hero.downloadCV')}</span>
+            </Button>
+            
             <Button
               ref={ctaButtonRef}
               variant="cta"
@@ -155,38 +184,41 @@ export function Header() {
               onClick={handleGetInTouch}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className="hidden md:inline-flex transition-transform duration-200"
+              className="hidden md:inline-flex transition-transform duration-200 px-4 h-10"
             >
               Get in Touch
             </Button>
             
+            <LanguageToggle />
             <ThemeToggle />
-            
-            {/* Mobile menu button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 py-4 border-t border-border">
-            {/* Quick Access Row */}
-            <div className="flex items-center gap-4 mb-4 pb-4 border-b border-border">
-              <NavLink
-                to="/blog"
-                className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <PenLine className="h-4 w-4" />
-                Blog
-              </NavLink>
+            {/* Quick Access Row - Optimized for small screens */}
+            <div className="flex flex-col gap-3 mb-4 pb-4 border-b border-border">
+              <div className="flex items-center gap-2 flex-wrap">
+                <NavLink
+                  to="/blog"
+                  className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium min-h-[44px] px-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <PenLine className="h-4 w-4" />
+                  <span className="text-sm">Blog</span>
+                </NavLink>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => window.open('/cv.pdf', '_blank')}
+                  aria-label={t('hero.downloadCV')}
+                  className="min-h-[44px] min-w-[44px]"
+                >
+                  <Download className="h-4 w-4 sm:mr-2" />
+                  <span className="hidden sm:inline text-sm">{t('hero.downloadCV')}</span>
+                </Button>
+              </div>
               <Button
                 variant="cta"
                 size="sm"
@@ -194,26 +226,35 @@ export function Header() {
                   handleGetInTouch()
                   setIsMenuOpen(false)
                 }}
-                className="ml-auto"
+                className="w-full min-h-[44px]"
               >
                 Get in Touch
               </Button>
             </div>
             
+            <div className="flex items-center justify-between gap-4 mb-4 pb-4 border-b border-border">
+              <LanguageToggle />
+              <ThemeToggle />
+            </div>
+            
             {/* Section Links */}
-            <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => {
-                    scrollToSection(item.href)
-                    setIsMenuOpen(false)
-                  }}
-                  className="px-4 py-2 text-foreground hover:text-primary hover:bg-secondary/50 transition-all duration-200 font-medium text-left rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                >
-                  {item.label}
-                </button>
-              ))}
+            <div className="flex flex-col space-y-2">
+              {navItems.map((item) => {
+                const Icon = item.icon
+                return (
+                  <button
+                    key={item.href}
+                    onClick={() => {
+                      scrollToSection(item.href)
+                      setIsMenuOpen(false)
+                    }}
+                    className="px-4 py-3 text-foreground hover:text-primary hover:bg-secondary/50 transition-all duration-200 font-medium text-left rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring flex items-center gap-3 min-h-[44px]"
+                  >
+                    <Icon className="h-5 w-5 flex-shrink-0" />
+                    <span className="text-sm">{item.label}</span>
+                  </button>
+                )
+              })}
             </div>
           </div>
         )}
