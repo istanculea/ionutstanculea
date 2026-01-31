@@ -3,6 +3,7 @@ import { Zap, Cloud, Wrench, Users, Activity, CheckCircle, Heart, Award, Sparkle
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "react-i18next"
+import profilePhoto from "@/assets/profile-photo.png"
 
 export function About() {
   const { t } = useTranslation()
@@ -26,25 +27,31 @@ export function About() {
   ]
 
   return (
-    <section id="about" className="py-24 px-6 scroll-mt-20" data-reveal>
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center space-y-3 mb-16" data-reveal-item>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface text-sm font-medium">
-            <Sparkles className="h-4 w-4 text-primary" />
+    <section id="about" className="py-24 px-6 scroll-mt-20 relative overflow-hidden" data-reveal>
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-0 w-72 h-72 bg-accent-light/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container max-w-6xl mx-auto relative z-10">
+        <div className="text-center space-y-4 mb-16" data-reveal-item>
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/20 bg-primary/5 text-sm font-medium text-primary backdrop-blur-sm">
+            <Sparkles className="h-4 w-4" />
             {t('about.badge')}
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground flex items-center justify-center gap-3">
-            <UserRound className="h-8 w-8 text-primary" />
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground flex items-center justify-center gap-4">
+            <UserRound className="h-10 w-10 text-primary" />
             {t('about.title')}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t('about.subtitle')}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-7 space-y-8">
-            <div className="space-y-4" data-reveal-item style={{ "--reveal-delay": "80ms" } as CSSProperties}>
+            <div className="space-y-5 backdrop-blur-sm bg-card/50 rounded-2xl p-6 border border-border/50" data-reveal-item style={{ "--reveal-delay": "80ms" } as CSSProperties}>
               <p className="text-base leading-relaxed text-muted-foreground">
                 {t('about.paragraph1')}
               </p>
@@ -53,8 +60,10 @@ export function About() {
                 {t('about.paragraph2')}
               </p>
 
-              <p className="text-base leading-relaxed text-muted-foreground flex items-center gap-2">
-                <Heart className="h-5 w-5 text-primary" />
+              <p className="text-base leading-relaxed text-muted-foreground flex items-center gap-3">
+                <span className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Heart className="h-5 w-5 text-primary" />
+                </span>
                 {t('about.paragraph3')}
               </p>
             </div>
@@ -65,30 +74,30 @@ export function About() {
                 return (
                   <div 
                     key={index}
-                    className="rounded-xl border border-border bg-card/70 p-4 flex items-start gap-3 card-interactive"
+                    className="group rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm p-5 flex items-start gap-4 transition-all duration-300 hover:border-primary/30 hover:bg-card/80 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1"
                   >
-                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <IconComponent className="h-5 w-5 text-primary" />
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                      <IconComponent className="h-6 w-6 text-primary" />
                     </div>
-                    <span className="text-sm leading-relaxed text-foreground">{highlight.text}</span>
+                    <span className="text-sm leading-relaxed text-foreground/90">{highlight.text}</span>
                   </div>
                 )
               })}
             </div>
 
-            <div className="rounded-xl border border-border bg-card/70 p-6 card-interactive" data-reveal-item style={{ "--reveal-delay": "200ms" } as CSSProperties}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Code2 className="h-5 w-5 text-primary" />
+            <div className="rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5" data-reveal-item style={{ "--reveal-delay": "200ms" } as CSSProperties}>
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                  <Code2 className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">{t('about.coreSkills')}</h3>
+                <h3 className="text-xl font-semibold text-foreground">{t('about.coreSkills')}</h3>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {skills.map((skill) => (
                   <Badge 
                     key={skill} 
                     variant="secondary"
-                    className="px-3 py-1 text-sm bg-muted text-foreground border-border"
+                    className="px-4 py-2 text-sm bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors duration-200"
                   >
                     {skill}
                   </Badge>
@@ -96,21 +105,21 @@ export function About() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-border bg-card/70 p-6 space-y-3 card-interactive" data-reveal-item style={{ "--reveal-delay": "260ms" } as CSSProperties}>
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Award className="h-5 w-5 text-primary" />
+            <div className="rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm p-6 space-y-4 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5" data-reveal-item style={{ "--reveal-delay": "260ms" } as CSSProperties}>
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                  <Award className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">{t('about.certifications')}</h3>
+                <h3 className="text-xl font-semibold text-foreground">{t('about.certifications')}</h3>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {certifications.map((cert) => (
                   <div 
                     key={cert} 
-                    className="flex items-start gap-3"
+                    className="flex items-center gap-4 p-3 rounded-xl bg-background/50 border border-border/30"
                   >
-                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-sm text-muted-foreground leading-relaxed">{cert}</span>
+                    <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary/50 rounded-full flex-shrink-0"></div>
+                    <span className="text-sm text-foreground/80 leading-relaxed">{cert}</span>
                   </div>
                 ))}
               </div>
@@ -119,8 +128,7 @@ export function About() {
             <div className="pt-2" data-reveal-item style={{ "--reveal-delay": "320ms" } as CSSProperties}>
               <Button 
                 size="lg"
-                variant="outline"
-                className="px-6"
+                className="px-8 py-6 text-base bg-primary hover:bg-primary-dark shadow-lg hover:shadow-xl hover:shadow-primary/20 transition-all duration-300"
                 onClick={() => {
                   const experienceSection = document.getElementById('experience');
                   experienceSection?.scrollIntoView({ behavior: 'smooth' });
@@ -134,14 +142,29 @@ export function About() {
 
           <div className="lg:col-span-5 flex justify-center lg:justify-end" data-reveal-item style={{ "--reveal-delay": "200ms" } as CSSProperties}>
             <div className="lg:sticky lg:top-24">
-              <div className="relative">
-                <img
-                  src="/lovable-uploads/170f5004-9944-4459-b193-b8cca34127e6.png"
-                  alt="Ionuț Stănculea - Cloud & Operations Engineer"
-                  className="w-72 h-72 lg:w-80 lg:h-80 object-cover object-[50%_20%] rounded-2xl border border-border shadow-sm"
-                  loading="lazy"
-                  decoding="async"
-                />
+              <div className="relative group">
+                {/* Glow effect behind image */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-primary/10 to-accent-light/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                
+                {/* Main image container */}
+                <div className="relative">
+                  <div className="absolute -inset-1 bg-gradient-to-br from-primary/50 to-accent-light/50 rounded-3xl opacity-30" />
+                  <img
+                    src={profilePhoto}
+                    alt="Ionuț Stănculea - Cloud & Operations Engineer"
+                    className="relative w-80 h-96 lg:w-[340px] lg:h-[420px] object-cover object-top rounded-2xl border-2 border-border/50 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Floating badge */}
+                <div className="absolute -bottom-4 -right-4 px-5 py-3 bg-card/90 backdrop-blur-md border border-primary/20 rounded-xl shadow-lg">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                    <span className="text-sm font-medium text-foreground">Available for hire</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
