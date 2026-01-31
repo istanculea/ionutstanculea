@@ -49,9 +49,11 @@ export function About() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+        {/* Mobile-first layout: Photo appears first on mobile, side-by-side on desktop */}
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 items-start">
+          {/* Content column */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="space-y-5 backdrop-blur-sm bg-card/50 rounded-2xl p-6 border border-border/50" data-reveal-item style={{ "--reveal-delay": "80ms" } as CSSProperties}>
+            <div className="space-y-5 backdrop-blur-sm bg-card/50 rounded-2xl p-6 border border-border/50 hover:border-primary/20 transition-all duration-300" data-reveal-item style={{ "--reveal-delay": "80ms" } as CSSProperties}>
               <p className="text-base leading-relaxed text-muted-foreground">
                 {t('about.paragraph1')}
               </p>
@@ -140,31 +142,39 @@ export function About() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 flex justify-center lg:justify-end" data-reveal-item style={{ "--reveal-delay": "200ms" } as CSSProperties}>
+          {/* Photo column - renders first on mobile (order-first), normal on desktop */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end w-full" data-reveal-item style={{ "--reveal-delay": "100ms" } as CSSProperties}>
             <div className="lg:sticky lg:top-24">
               <div className="relative group">
-                {/* Glow effect behind image */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-primary/10 to-accent-light/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                {/* Animated gradient glow */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary/30 via-accent-light/20 to-primary/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 animate-pulse-glow" />
+                
+                {/* Decorative ring with gradient border */}
+                <div className="absolute -inset-2 rounded-3xl border-2 border-gradient-animated opacity-50" />
                 
                 {/* Main image container */}
                 <div className="relative">
-                  <div className="absolute -inset-1 bg-gradient-to-br from-primary/50 to-accent-light/50 rounded-3xl opacity-30" />
+                  <div className="absolute -inset-1 bg-gradient-to-br from-primary/40 to-accent-light/40 rounded-3xl opacity-40" />
                   <img
                     src={profilePhoto}
                     alt="Ionuț Stănculea - Cloud & Operations Engineer"
-                    className="relative w-80 h-96 lg:w-[340px] lg:h-[420px] object-cover object-top rounded-2xl border-2 border-border/50 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                    className="relative w-72 h-80 md:w-80 md:h-96 lg:w-[320px] lg:h-[400px] object-cover object-top rounded-2xl border-2 border-primary/30 shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-primary/20"
                     loading="lazy"
                     decoding="async"
                   />
                 </div>
 
-                {/* Floating badge */}
-                <div className="absolute -bottom-4 -right-4 px-5 py-3 bg-card/90 backdrop-blur-md border border-primary/20 rounded-xl shadow-lg">
+                {/* Status badge - positioned at bottom center */}
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-5 py-2.5 bg-card/95 backdrop-blur-md border border-primary/30 rounded-full shadow-xl">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-sm font-medium text-foreground">Available for hire</span>
+                    <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
+                    <span className="text-sm font-medium text-foreground whitespace-nowrap">Available for hire</span>
                   </div>
                 </div>
+
+                {/* Floating accent shapes for depth */}
+                <div className="absolute -top-6 -right-6 w-12 h-12 bg-primary/10 rounded-full blur-lg animate-float" />
+                <div className="absolute -bottom-8 -left-4 w-16 h-16 bg-accent-light/10 rounded-full blur-lg animate-float" style={{ animationDelay: '1s' }} />
               </div>
             </div>
           </div>

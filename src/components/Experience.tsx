@@ -45,8 +45,14 @@ export function Experience() {
   ]
 
   return (
-    <section id="experience" className="py-24 px-6 bg-background" data-reveal>
-      <div className="container max-w-6xl mx-auto">
+    <section id="experience" className="py-24 px-6 bg-background relative overflow-hidden" data-reveal>
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent-light/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container max-w-6xl mx-auto relative z-10">
         <div className="text-center space-y-3 mb-16" data-reveal-item>
           <h2 className="text-3xl md:text-4xl font-bold flex items-center justify-center gap-3">
             <Briefcase className="h-8 w-8 text-primary" />
@@ -57,11 +63,11 @@ export function Experience() {
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {experiences.map((exp, index) => (
             <div 
               key={index}
-              className="rounded-xl border border-border bg-card/70 p-6 card-interactive"
+              className="rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1"
               data-reveal-item
               style={{ "--reveal-delay": `${index * 90}ms` } as CSSProperties}
             >
@@ -69,8 +75,8 @@ export function Experience() {
                 <div className="space-y-2">
                   <h3 className="text-xl font-semibold text-foreground">{exp.title}</h3>
                   <div className="flex flex-wrap items-center gap-3 text-muted-foreground text-sm">
-                    <div className="flex items-center space-x-2">
-                      <Building2 className="h-4 w-4" />
+                    <div className="flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10">
+                      <Building2 className="h-4 w-4 text-primary" />
                       <span className="font-medium">{exp.company}</span>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -79,8 +85,8 @@ export function Experience() {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2 text-muted-foreground bg-surface px-3 py-2 rounded-lg text-sm border border-border">
-                  <Calendar className="h-4 w-4" />
+                <div className="flex items-center space-x-2 text-muted-foreground bg-card/80 backdrop-blur-sm px-4 py-2 rounded-lg text-sm border border-border/50">
+                  <Calendar className="h-4 w-4 text-primary" />
                   <span className="font-medium">{exp.period}</span>
                 </div>
               </div>
@@ -88,7 +94,7 @@ export function Experience() {
               <ul className="space-y-3">
                 {(exp.achievements as string[]).map((achievement, achIndex) => (
                   <li key={achIndex} className="flex items-start space-x-3">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-gradient-to-r from-primary to-primary/50 rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-muted-foreground leading-relaxed text-sm">{achievement}</p>
                   </li>
                 ))}
@@ -100,7 +106,7 @@ export function Experience() {
         <div className="flex justify-center mt-12" data-reveal-item style={{ "--reveal-delay": "120ms" } as CSSProperties}>
           <Button
             variant="outline"
-            className="group px-6"
+            className="group px-6 backdrop-blur-sm border-border/50 hover:border-primary/50 hover:bg-primary/5"
             onClick={() => {
               const target = document.getElementById('skills')
               target?.scrollIntoView({ behavior: 'smooth' })

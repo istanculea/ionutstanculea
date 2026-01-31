@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Cloud, Code, Server, Sparkles, ChevronDown } from 'lucide-react';
+import profilePhoto from "@/assets/profile-photo.png";
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -32,6 +33,19 @@ export function Hero() {
 
       <div className="container relative z-10 px-4 py-20">
         <div className="max-w-4xl mx-auto text-center space-y-10 hero-entrance">
+          {/* Profile avatar thumbnail */}
+          <div className="flex justify-center mb-2">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-accent-light/50 rounded-full blur opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+              <img
+                src={profilePhoto}
+                alt="Ionuț Stănculea"
+                className="relative w-20 h-20 md:w-24 md:h-24 rounded-full object-cover object-top border-2 border-primary/30 shadow-xl"
+              />
+              <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-background" />
+            </div>
+          </div>
+
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium backdrop-blur-sm shadow-lg shadow-primary/5">
             <Sparkles className="w-4 h-4" />
@@ -65,7 +79,7 @@ export function Hero() {
             ].map((item, index) => (
               <div 
                 key={index}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border/50"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300"
               >
                 <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 <span className="text-foreground/80">{item}</span>
@@ -100,7 +114,7 @@ export function Hero() {
               {['Terraform', 'Kubernetes', 'Docker', 'Jenkins', 'AWS', 'Azure', 'Python', 'CI/CD'].map((tech, index) => (
                 <span 
                   key={tech}
-                  className="px-4 py-2 text-sm font-medium bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg hover:border-primary/40 hover:text-primary hover:bg-primary/5 transition-all duration-300 cursor-default"
+                  className="px-4 py-2 text-sm font-medium bg-card/60 backdrop-blur-sm border border-border/50 rounded-lg hover:border-primary/40 hover:text-primary hover:bg-primary/5 hover:scale-105 transition-all duration-300 cursor-default"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {tech}
