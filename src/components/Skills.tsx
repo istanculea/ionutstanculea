@@ -82,10 +82,16 @@ export function Skills() {
 
   return (
     <section id="skills" className="py-24 px-6 bg-surface relative overflow-hidden" data-reveal>
-      <div className="container max-w-6xl mx-auto relative space-y-12">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/3 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 left-0 w-72 h-72 bg-accent-light/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container max-w-6xl mx-auto relative z-10 space-y-12">
         <div className="space-y-6">
           <div className="text-center space-y-3" data-reveal-item>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface text-primary">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary backdrop-blur-sm">
               <Sparkles className="h-4 w-4" />
               <span className="text-sm font-medium">Core Capabilities</span>
             </div>
@@ -102,12 +108,12 @@ export function Skills() {
             {technicalSkills.map((category, index) => (
               <div 
                 key={category.category}
-                className="rounded-xl border border-border bg-card/70 p-6 card-interactive"
+                className="rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1"
                 data-reveal-item
                 style={{ "--reveal-delay": `${index * 80}ms` } as CSSProperties}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                  <div className="p-2.5 bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl text-primary">
                     {category.icon}
                   </div>
                   <h3 className="font-semibold text-lg text-foreground">{category.category}</h3>
@@ -117,7 +123,7 @@ export function Skills() {
                     <Badge 
                       key={skill} 
                       variant="secondary" 
-                      className="bg-muted text-foreground border-border"
+                      className="bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors duration-200"
                     >
                       {skill}
                     </Badge>
@@ -130,7 +136,7 @@ export function Skills() {
 
         <div className="space-y-6">
           <div className="text-center space-y-2" data-reveal-item style={{ "--reveal-delay": "120ms" } as CSSProperties}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface text-accent">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary backdrop-blur-sm">
               <Languages className="h-4 w-4" />
               <span className="text-sm font-medium">Communication</span>
             </div>
@@ -140,7 +146,7 @@ export function Skills() {
             </p>
           </div>
           
-          <div className="rounded-xl border border-border bg-card/70 p-8 card-interactive" data-reveal-item style={{ "--reveal-delay": "200ms" } as CSSProperties}>
+          <div className="rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5" data-reveal-item style={{ "--reveal-delay": "200ms" } as CSSProperties}>
             <div className="grid gap-6 sm:grid-cols-2">
               {languageSkills.map((lang) => (
                 <div 
@@ -160,7 +166,7 @@ export function Skills() {
 
         <div className="space-y-6">
           <div className="text-center space-y-2" data-reveal-item style={{ "--reveal-delay": "240ms" } as CSSProperties}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface text-accent">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary backdrop-blur-sm">
               <Heart className="h-4 w-4" />
               <span className="text-sm font-medium">Personal</span>
             </div>
@@ -170,13 +176,13 @@ export function Skills() {
             </p>
           </div>
           
-          <div className="rounded-xl border border-border bg-card/70 p-8 card-interactive" data-reveal-item style={{ "--reveal-delay": "300ms" } as CSSProperties}>
+          <div className="rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5" data-reveal-item style={{ "--reveal-delay": "300ms" } as CSSProperties}>
             <div className="flex flex-wrap justify-center gap-3">
               {interests.map((interest) => (
                 <Badge 
                   key={interest}
                   variant="outline" 
-                  className="text-base py-2 px-4 border-border text-foreground"
+                  className="text-base py-2 px-4 border-primary/20 text-foreground hover:bg-primary/5 hover:border-primary/40 transition-all duration-200"
                 >
                   {interest}
                 </Badge>
@@ -187,7 +193,7 @@ export function Skills() {
 
         <div className="flex justify-center" data-reveal-item style={{ "--reveal-delay": "360ms" } as CSSProperties}>
           <button
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border hover:border-primary/60 transition-colors bg-background/70 min-h-11"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 bg-card/60 backdrop-blur-sm min-h-11"
             onClick={() => {
               const target = document.getElementById('education')
               target?.scrollIntoView({ behavior: 'smooth' })
