@@ -8,7 +8,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
-import { useTranslation, TFunction } from "react-i18next"
+import { useTranslation } from "react-i18next"
+import type { TFunction } from "i18next"
 import { CONTACT, SOCIAL_LINKS, SERVICES } from "@/config/constants"
 
 const buildContactSchema = (t: TFunction) => z.object({
